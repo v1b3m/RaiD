@@ -10,7 +10,7 @@ interface Props {
 
 export default function Layout({ children, headerProps }: Props) {
   return (
-    <Box bg="brand.raisinBlack" minH="100vh">
+    <Box bg="brand.raisinBlack" minH="100vh" textColor="brand.cultured">
       <Header props={headerProps} />
       {children}
       <Footer />

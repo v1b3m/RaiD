@@ -43,11 +43,7 @@ export default function Header({ props }: Props) {
   return (
     <Box {...props}>
       <Accordion allowToggle>
-        <AccordionItem
-          borderBottom="0"
-          borderTopColor="brand.raisinBlack"
-          textColor="brand.cultured"
-        >
+        <AccordionItem borderBottom="0" borderTopColor="brand.raisinBlack">
           <Flex
             h={{ base: "5rem", sm: "7rem" }}
             px={{ base: "1rem", md: "2rem", lg: "4rem", xl: "7.5rem" }}
