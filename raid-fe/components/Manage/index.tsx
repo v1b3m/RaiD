@@ -11,7 +11,7 @@ export default function Manage() {
   const [activePage, setActivePage] = useState<IActivePage>("analyze");
   const user = UseGetUser();
   console.log({ user });
-  const [isLoading, setIsLoading] = useBoolean(true);
+  const [isLoading, setIsLoading] = useBoolean();
   const router = useRouter();
 
   const query = router.query as { section: string };
@@ -31,7 +31,6 @@ export default function Manage() {
       >
         <Buttons activePage={activePage} setActivePage={setActivePage} />
         <Box
-          p="0 2.5rem"
           borderLeftWidth={{ xl: "3px" }}
           borderTopWidth="3px"
           borderColor="brand.charcoal"
