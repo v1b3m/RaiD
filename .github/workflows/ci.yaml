@@ -37,6 +37,10 @@ jobs:
       - name: Install node_modules
         run: yarn install
 
+      - name: Install fe-dependencies
+        run: yarn install
+        working-directory: raid-fe
+
       - name: Check Linting
         run: yarn lerna run lint
 
