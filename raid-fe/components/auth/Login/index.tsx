@@ -1,16 +1,22 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Layout from "../../Layout";
+import LoginContent from "../Forms/Login";
 
 const Login = () => {
   return (
     <Layout>
-      <Box
-        px={{ base: "1rem", md: "2rem", lg: "4rem", xl: "7.5rem" }}
+      <Flex
+        px={{ base: "1rem", sm: "3rem", md: "3rem", lg: "4rem", xl: "7.5rem" }}
         fontFamily="Nunito"
         mb="2rem"
+        flexDir="column"
+        height="100%"
+        flexGrow={1}
+        alignItems="center"
+        justifyContent="center"
       >
-        Hello, World!
-      </Box>
+        <LoginContent />
+      </Flex>
     </Layout>
   );
 };

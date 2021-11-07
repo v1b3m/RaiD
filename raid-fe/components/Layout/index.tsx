@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@chakra-ui/react";
+import { Box, BoxProps, Flex } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import Footer from "../Footer";
 import Header from "../Header";
@@ -10,10 +10,17 @@ interface Props {
 
 export default function Layout({ children, headerProps }: Props) {
   return (
-    <Box bg="brand.raisinBlack" minH="100vh" textColor="brand.cultured">
+    <Flex
+      bg="brand.raisinBlack"
+      height="100%"
+      minH="100vh"
+      textColor="brand.cultured"
+      fontFamily="Nunito"
+      flexDir="column"
+    >
       <Header props={headerProps} />
       {children}
       <Footer />
-    </Box>
+    </Flex>
   );
 }

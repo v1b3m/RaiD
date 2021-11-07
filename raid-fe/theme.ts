@@ -39,6 +39,7 @@ const colors = {
     purple: "#6500CD",
     mediumOrchid: "#AC5CD9",
     plumWeb: "#DEA5E8",
+    indepedence: "#5C5E72",
   },
 };
 

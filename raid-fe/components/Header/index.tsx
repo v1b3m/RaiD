@@ -49,7 +49,6 @@ export default function Header({ props }: Props) {
             px={{ base: "1rem", md: "2rem", lg: "4rem", xl: "7.5rem" }}
             justify="space-between"
             align="center"
-            fontFamily="Nunito"
           >
             <Text
               textColor="white"
@@ -58,6 +57,10 @@ export default function Header({ props }: Props) {
               align="center"
               cursor="pointer"
               _hover={{ textColor: "brand.maximumBlue" }}
+              bg="brand.spaceCadet"
+              px="1rem"
+              py="0.5rem"
+              borderRadius="1rem"
             >
               RaiD
             </Text>

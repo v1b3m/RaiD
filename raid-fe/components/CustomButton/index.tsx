@@ -8,14 +8,13 @@ interface Props {
 export default function CustomButton({ props, label }: Props) {
   return (
     <Button
-      mx="2rem"
       bg="brand.greenRYB"
       textColor="brand.cultured"
       _hover={{
         bg: "brand.teaGreen",
-        textColor: "brand.raisinBlack",
+        textColor: "brand.blueCrayola",
       }}
-      boxShadow="0 0 10px #6DAE1F"
+      boxShadow="0 0 10px #3D7BFA"
       {...props}
     >
       {label}
