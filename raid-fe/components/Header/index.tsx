@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { BiMenuAltRight } from "react-icons/bi";
+import { navigateTo } from "../../utils/navigation";
 
 interface CustomLinkProps {
   text: string;
@@ -61,6 +62,7 @@ export default function Header({ props }: Props) {
               px="1rem"
               py="0.5rem"
               borderRadius="1rem"
+              onClick={() => navigateTo("/")}
             >
               RaiD
             </Text>
@@ -71,8 +73,11 @@ export default function Header({ props }: Props) {
               fontSize="1.1rem"
               display={{ base: "none", md: "flex" }}
             >
-              <CustomLink text="Help" uri="#" />
-              <CustomLink text="Contact Us" uri="#" />
+              <CustomLink text="Help" uri="/help" />
+              <CustomLink
+                text="Contact Us"
+                uri="mailto:vibenjamin6@gmail.com"
+              />
             </Flex>
 
             <Box
@@ -89,8 +94,12 @@ export default function Header({ props }: Props) {
             </Box>
           </Flex>
           <AccordionPanel pb={4} display={{ base: "block", md: "none" }}>
-            <CustomLink text="Help" uri="#" props={{ my: "0.5rem" }} />
-            <CustomLink text="Contact Us" uri="#" props={{ my: "0.5rem" }} />
+            <CustomLink text="Help" uri="/help" props={{ my: "0.5rem" }} />
+            <CustomLink
+              text="Contact Us"
+              uri="mailto:vibenjamin6@gmail.com?suject=RaidHelp Needed"
+              props={{ my: "0.5rem" }}
+            />
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
