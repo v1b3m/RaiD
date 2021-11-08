@@ -8,8 +8,6 @@ function MyDropZone() {
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  console.log(getInputProps());
-
   return (
     <Box
       {...getRootProps()}
