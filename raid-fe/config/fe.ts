@@ -10,3 +10,5 @@ export const secret = tokens.secretSync();
 // Uncomment these lines to generate a secret
 // const token = tokens.create(secret);
 // console.log({ secret, token });
+
+export const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;

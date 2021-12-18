@@ -17,7 +17,9 @@ import {
   useReducer,
 } from "react";
 import { v4 as uuid4 } from "uuid";
-import { cloudName, uploadPreset } from "../../../config/fe";
+import { cloudName, uploadPreset, backendURL } from "../../../config/fe";
+import { useSession } from "../../../context/SessionContext";
+import { HttpError } from "../../../error";
 import { IActivePage } from "../../../types/manage";
 import { toBase64, upload } from "../../../utils/cloudinary";
 import CustomButton from "../../CustomButton";
@@ -34,6 +36,7 @@ interface State {
   id: string;
   base64: string[];
   activeImage: string;
+  error: string;
 }
 type Value = Partial<State>;
 type Key = keyof State;
@@ -42,7 +45,13 @@ interface Props {
   setActivePage: Dispatch<SetStateAction<IActivePage>>;
 }
 
+interface UploadResponse {
+  message: string;
+  error?: Record<string, unknown>;
+}
+
 const Analyze: FC<Props> = ({ setActivePage }) => {
+  const { data: session } = useSession();
   const initialState = {
     files: [],
     base64: [],
@@ -50,6 +59,7 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
     description: "",
     id: uuid4(),
     activeImage: "",
+    error: "",
   };
   const reducer = (state: State, value: Value) => ({ ...state, ...value });
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -65,10 +75,41 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
 
   const onSubmit = async () => {
     dispatch({ isLoading: true });
-    const result = await upload(state.files, cloudName, uploadPreset);
-    console.log({ result });
-    dispatch({ isLoading: false });
-    setActivePage("results");
+    dispatch({ error: "" });
+    try {
+      const images = await upload(state.files, cloudName, uploadPreset);
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session?.token}`,
+      };
+      const body = JSON.stringify({
+        description: state.description,
+        images,
+        uuid: state.id,
+      });
+      const response = await fetch(`${backendURL}/uploads/`, {
+        body,
+        method: "POST",
+        headers,
+      });
+      if ([400, 500].includes(response.status)) {
+        throw new HttpError(await response.text(), response.status);
+      }
+      (await response.json()) as UploadResponse;
+      dispatch({ isLoading: false });
+      setActivePage("results");
+    } catch (error) {
+      let message = (error as Error).message;
+      if (message.includes(`description":["This field may not be blank.`)) {
+        message = "Please enter a description";
+      }
+      if (message.includes(`"images":["empty values `)) {
+        message = "Please upload at least one image";
+      }
+      dispatch({ error: message });
+    } finally {
+      dispatch({ isLoading: false });
+    }
   };
 
   useEffect(() => {
@@ -88,6 +129,11 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
 
   return (
     <Box fontSize={{ lg: "1.5rem" }} px={{ xl: "2.5rem" }}>
+      {state.error && (
+        <Text color="red.500" fontSize="sm" maxW="460px">
+          {state.error}
+        </Text>
+      )}
       <Grid my="1rem" templateColumns={{ base: "1fr 4fr" }}>
         <Text fontWeight="bold">ID:</Text>
         <Text>{state.id}</Text>
