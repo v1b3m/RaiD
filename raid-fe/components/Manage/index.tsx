@@ -40,7 +40,9 @@ export default function Manage() {
               <Spinner />
             </Center>
           )}
-          {activePage === "analyze" && <Analyze />}
+          {activePage === "analyze" && (
+            <Analyze setActivePage={setActivePage} />
+          )}
           {activePage === "results" && <Results />}
           {activePage === "account" && (
             <Center height="100%">

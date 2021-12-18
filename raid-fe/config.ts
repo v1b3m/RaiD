@@ -20,6 +20,7 @@ export function presentStringInvariant(name: string): string {
 }
 
 export function presentNumberParser(name: string): number {
+  console.log(process.env.NEXT_PUBLIC_LOG_LEVEL);
   const parsed = process.env[name] && parseInt(process.env[name] as string);
   if (!parsed) {
     throw new MissingExpectedValue(
@@ -31,6 +32,7 @@ export function presentNumberParser(name: string): number {
 
 export function presentEnumInvariant<T>(range: T[], enumName: string): T {
   const value = process.env[enumName] as unknown as T;
+
   if (range.includes(value)) {
     return value;
   }
@@ -39,11 +41,7 @@ export function presentEnumInvariant<T>(range: T[], enumName: string): T {
   );
 }
 
-const logLevels = ["fatal", "error", "warn", "info", "debug", "trace"];
-export const logLevel = presentEnumInvariant(
-  logLevels,
-  "NEXT_PUBLIC_LOG_LEVEL"
-);
-
-export const cloudName = presentStringInvariant("NEXT_PUBLIC_CLOUD_NAME");
-export const uploadPreset = presentStringInvariant("NEXT_PUBLIC_UPLOAD_PRESET");
+export const logLevels = ["fatal", "error", "warn", "info", "debug", "trace"];
+export const logLevel = process.env.NEXT_PUBLIC_LOG_LEVEL || "info";
+export const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME || "";
+export const uploadPreset = process.env.NEXT_PUBLIC_UPLOAD_PRESET || "";
