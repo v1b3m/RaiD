@@ -7,6 +7,7 @@ import {
   Text,
   useBoolean,
 } from "@chakra-ui/react";
+import { ChangeEvent } from "react";
 import { IconType } from "react-icons";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
@@ -15,9 +16,20 @@ interface Props {
   LeftIcon?: IconType;
   isPassword?: boolean;
   type?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  isInvalid?: boolean;
+  invalidText?: string;
 }
 
-const CustomInput = ({ label, LeftIcon, isPassword, type }: Props) => {
+const CustomInput = ({
+  label,
+  LeftIcon,
+  isPassword,
+  type,
+  onChange,
+  isInvalid,
+  invalidText,
+}: Props) => {
   const [passwordFlag, setPasswordFlag] = useBoolean();
 
   return (
@@ -29,7 +41,11 @@ const CustomInput = ({ label, LeftIcon, isPassword, type }: Props) => {
             <LeftIcon size={24} />
           </InputLeftAddon>
         )}
-        <Input type={isPassword && !passwordFlag ? "password" : type} />
+        <Input
+          type={isPassword && !passwordFlag ? "password" : type}
+          onChange={onChange}
+          isInvalid={isInvalid}
+        />
         {isPassword && (
           <InputRightAddon bg="brand.spaceCadet">
             {passwordFlag && (
@@ -45,6 +61,11 @@ const CustomInput = ({ label, LeftIcon, isPassword, type }: Props) => {
           </InputRightAddon>
         )}
       </InputGroup>
+      {isInvalid && (
+        <Text color="red.500" fontSize="sm" isTruncated maxW="460px">
+          {invalidText}
+        </Text>
+      )}
     </Box>
   );
 };

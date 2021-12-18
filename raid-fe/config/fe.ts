@@ -1,4 +1,12 @@
+import Tokens from "csrf";
+
 export const logLevel = process.env.NEXT_PUBLIC_LOG_LEVEL || "info";
 export const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME || "";
 export const uploadPreset = process.env.NEXT_PUBLIC_UPLOAD_PRESET || "";
-export const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "";
+
+export const tokens = new Tokens();
+export const secret = tokens.secretSync();
+
+// Uncomment these lines to generate a secret
+// const token = tokens.create(secret);
+// console.log({ secret, token });

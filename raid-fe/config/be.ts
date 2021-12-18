@@ -1,5 +1,4 @@
 import { SetOption } from "cookies";
-import Tokens from "csrf";
 
 export class MissingExpectedValue extends Error {
   public readonly statusCode = 500;
@@ -46,15 +45,15 @@ export function presentEnumInvariant<T>(range: T[], enumName: string): T {
 
 export const logLevels = ["fatal", "error", "warn", "info", "debug", "trace"];
 
-export const tokens = new Tokens();
-export const secret = tokens.secretSync();
-
-// Uncomment these lines to generate a secret
-// const token = tokens.create(secret);
-// console.log({ secret, token });
-
 export const defaultCookieConfig: SetOption = {
   secure: process.env.NODE_ENV !== "development",
   httpOnly: true,
   expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
 };
+
+export const JWTSecret = requiredStringVariable("JWT_SECRET");
+
+export const cryptoAlgorithm = requiredStringVariable("CRYPTO_ALGORITHM");
+export const cryptoIV = requiredStringVariable("CRYPTO_IV");
+export const cryptoKey = requiredStringVariable("CRYPTO_KEY");
+export const baseURL = requiredStringVariable("BASE_URL");

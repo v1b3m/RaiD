@@ -9,7 +9,7 @@ import { validate } from "../../middleware/validate";
 import { encrypt } from "../../utils/crypto";
 import { modifyToken } from "../../utils/jwt";
 
-export interface RegisterResponse {
+export interface SignInResponse {
   message: string;
   user?: {
     id: number;
@@ -21,11 +21,9 @@ export interface RegisterResponse {
   error?: Record<string, unknown>;
 }
 
-const registerSchema = yup
+const signInSchema = yup
   .object({
     email: yup.string().email().required(),
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
     password: yup
       .string()
       .required()
@@ -36,32 +34,22 @@ const registerSchema = yup
   .label("body")
   .required();
 
-async function registerHandler(req: NextApiRequest, res: NextApiResponse) {
+async function signInHandler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const cookies = new Cookies(req, res);
-    const {
-      email,
-      firstName: first_name,
-      lastName: last_name,
-      password,
-    } = req.body;
     const headers = {
       "Content-Type": "application/json",
     };
-    const body = JSON.stringify({
-      email,
-      first_name,
-      last_name,
-      password,
-    });
-    const response = await fetch(`${baseURL}/auth/register/`, {
+    const body = JSON.stringify(req.body);
+    const response = await fetch(`${baseURL}/auth/login/`, {
       headers,
       method: "POST",
       body,
     });
     const { status } = response;
-    if (status === 201) {
-      const json = (await response.json()) as RegisterResponse;
+    if (status === 200) {
+      console.log({ response });
+      const json = (await response.json()) as SignInResponse;
       const { access, user } = json;
       cookies.set(
         "x-raid-session",
@@ -81,4 +69,4 @@ async function registerHandler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-export default validate(registerHandler, registerSchema, ["POST"]);
+export default validate(signInHandler, signInSchema, ["POST"]);

@@ -1,6 +1,6 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import { ValidationError } from "yup";
-import { secret, tokens } from "../config/be";
+import { secret, tokens } from "../config/fe";
 
 const token = tokens.create(secret);
 
