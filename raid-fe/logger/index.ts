@@ -1,5 +1,5 @@
 import pino from "pino";
-import { logLevel } from "../config";
+import { logLevel } from "../config/fe";
 
 const pinoOptions = {
   level: logLevel,
