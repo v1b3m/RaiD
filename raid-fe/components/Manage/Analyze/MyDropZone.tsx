@@ -4,11 +4,10 @@ import React, { Dispatch, FC, SetStateAction, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface Props {
-  files: File[];
   setFiles: (files: File[]) => void;
 }
 
-const MyDropZone: FC<Props> = ({ files, setFiles }) => {
+const MyDropZone: FC<Props> = ({ setFiles }) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(acceptedFiles);
   }, []);

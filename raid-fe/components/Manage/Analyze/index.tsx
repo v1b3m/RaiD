@@ -155,7 +155,7 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
         templateColumns={{ sm: "1fr 4fr", md: "1fr 4fr", lg: "1fr 4fr" }}
       >
         <Text fontWeight="bold">Radiograph(s):</Text>
-        <MyDropZone files={state.files} setFiles={setFiles} />
+        <MyDropZone setFiles={setFiles} />
       </Grid>
 
       {state.base64.length > 0 && (

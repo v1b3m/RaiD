@@ -1,13 +1,17 @@
-import { Box, Center, Grid, Spinner, Text, useBoolean } from "@chakra-ui/react";
+import { Box, Center, Grid, Spinner, useBoolean } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSession } from "../../context/SessionContext";
 import { IActivePage } from "../../types/manage";
+import User from "../../types/User";
 import Layout from "../Layout";
 import Analyze from "./Analyze";
 import Buttons from "./Buttons";
+import Profile from "./Profile";
 import Results from "./Results";
 
 export default function Manage() {
+  const { data: session } = useSession();
   const [activePage, setActivePage] = useState<IActivePage>("analyze");
   const [isLoading, setIsLoading] = useBoolean();
   const router = useRouter();
@@ -45,9 +49,10 @@ export default function Manage() {
           )}
           {activePage === "results" && <Results />}
           {activePage === "account" && (
-            <Center height="100%">
-              <Text fontSize={{ lg: "2rem" }}>Hello, World!</Text>
-            </Center>
+            <Profile
+              user={session?.user as User}
+              token={session?.token as string}
+            />
           )}
         </Box>
       </Grid>

@@ -10,8 +10,6 @@ export const Auth: FC<AuthPropTypes> = ({ children }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  console.log(session);
-
   useEffect(() => {
     if (!session?.user && router) {
       router.push("/");
