@@ -44,3 +44,6 @@ export const logLevel = presentEnumInvariant(
   logLevels,
   "NEXT_PUBLIC_LOG_LEVEL"
 );
+
+export const cloudName = presentStringInvariant("NEXT_PUBLIC_CLOUD_NAME");
+export const uploadPreset = presentStringInvariant("NEXT_PUBLIC_UPLOAD_PRESET");
