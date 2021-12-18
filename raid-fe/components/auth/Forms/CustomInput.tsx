@@ -7,7 +7,7 @@ import {
   Text,
   useBoolean,
 } from "@chakra-ui/react";
-import { ChangeEvent } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 import { IconType } from "react-icons";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
@@ -15,10 +15,12 @@ interface Props {
   label: string;
   LeftIcon?: IconType;
   isPassword?: boolean;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isInvalid?: boolean;
   invalidText?: string;
+  placeholder?: string;
+  value?: string;
 }
 
 const CustomInput = ({
@@ -29,6 +31,8 @@ const CustomInput = ({
   onChange,
   isInvalid,
   invalidText,
+  placeholder,
+  value,
 }: Props) => {
   const [passwordFlag, setPasswordFlag] = useBoolean();
 
@@ -42,6 +46,7 @@ const CustomInput = ({
           </InputLeftAddon>
         )}
         <Input
+          {...(value && { value })}
           type={isPassword && !passwordFlag ? "password" : type}
           onChange={onChange}
           isInvalid={isInvalid}
