@@ -17,7 +17,7 @@ import {
   useReducer,
 } from "react";
 import { v4 as uuid4 } from "uuid";
-import { cloudName, uploadPreset } from "../../../config";
+import { cloudName, uploadPreset } from "../../../config/fe";
 import { IActivePage } from "../../../types/manage";
 import { toBase64, upload } from "../../../utils/cloudinary";
 import CustomButton from "../../CustomButton";

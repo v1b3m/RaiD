@@ -1,3 +1,6 @@
+import { SetOption } from "cookies";
+import Tokens from "csrf";
+
 export class MissingExpectedValue extends Error {
   public readonly statusCode = 500;
 
@@ -8,7 +11,7 @@ export class MissingExpectedValue extends Error {
 
 export type Environment = "production" | "test" | "development";
 
-export function presentStringInvariant(name: string): string {
+export function requiredStringVariable(name: string): string {
   const value = process.env[name];
 
   if (!value || value.length < 1) {
@@ -42,6 +45,16 @@ export function presentEnumInvariant<T>(range: T[], enumName: string): T {
 }
 
 export const logLevels = ["fatal", "error", "warn", "info", "debug", "trace"];
-export const logLevel = process.env.NEXT_PUBLIC_LOG_LEVEL || "info";
-export const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME || "";
-export const uploadPreset = process.env.NEXT_PUBLIC_UPLOAD_PRESET || "";
+
+export const tokens = new Tokens();
+export const secret = tokens.secretSync();
+
+// Uncomment these lines to generate a secret
+// const token = tokens.create(secret);
+// console.log({ secret, token });
+
+export const defaultCookieConfig: SetOption = {
+  secure: process.env.NODE_ENV !== "development",
+  httpOnly: true,
+  expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+};
