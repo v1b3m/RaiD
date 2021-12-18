@@ -110,9 +110,9 @@ const CustomTable = ({
       <Table variant="striped" colorScheme="whiteAlpha">
         <TableCaption>ALL THE RESULTS YOU'VE ANALYZED SO FAR</TableCaption>
         <Thead>
-          {headerGroups.map((headerGroup) => {
+          {headerGroups.map((headerGroup, idx) => {
             return (
-              <Tr>
+              <Tr key={idx}>
                 {getHeaders(headerGroup.headers).map((column) => (
                   <Th key={column.getHeaderProps().key}>
                     {column.render("Header")}

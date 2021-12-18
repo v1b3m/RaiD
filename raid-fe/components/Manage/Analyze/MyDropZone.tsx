@@ -1,10 +1,16 @@
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
 import { Box, Center } from "@chakra-ui/react";
+import _ from "lodash";
+import React, { Dispatch, FC, SetStateAction, useCallback } from "react";
+import { useDropzone } from "react-dropzone";
 
-function MyDropZone() {
-  const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
+interface Props {
+  files: File[];
+  setFiles: (files: File[]) => void;
+}
+
+const MyDropZone: FC<Props> = ({ files, setFiles }) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    setFiles(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -27,6 +33,6 @@ function MyDropZone() {
       </Center>
     </Box>
   );
-}
+};
 
 export default MyDropZone;

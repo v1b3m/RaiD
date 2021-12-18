@@ -5,6 +5,7 @@ interface Props {
   props?: ButtonProps;
   onClick?: () => void;
   isDisabled?: boolean;
+  isLoading?: boolean;
 }
 
 export default function CustomButton({
@@ -12,6 +13,7 @@ export default function CustomButton({
   label,
   onClick,
   isDisabled,
+  isLoading,
 }: Props) {
   return (
     <Button
@@ -24,6 +26,7 @@ export default function CustomButton({
         textColor: "brand.blueCrayola",
       }}
       boxShadow="0 0 10px #3D7BFA"
+      isLoading={isLoading}
       {...props}
     >
       {label}
