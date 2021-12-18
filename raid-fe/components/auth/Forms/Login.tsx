@@ -194,6 +194,7 @@ const Login = () => {
               onChange={onChange("email")}
               isInvalid={!state.isValidEmail}
               invalidText="Please enter a valid email address"
+              type="email"
             />
             {!isRegistered && (
               <CustomInput
@@ -202,6 +203,7 @@ const Login = () => {
                 onChange={onChange("name")}
                 isInvalid={!state.isValidFullName}
                 invalidText="Please enter a valid full name"
+                type="text"
               />
             )}
             <CustomInput
