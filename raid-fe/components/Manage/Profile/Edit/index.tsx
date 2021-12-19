@@ -7,6 +7,7 @@ import { clean } from "../../../../utils/object";
 import CustomInput from "../../../auth/Forms/CustomInput";
 import MyDropZone from "../../Analyze/MyDropZone";
 import Container from "./Container";
+import { Text } from "@chakra-ui/react";
 
 interface Props {
   isOpen: boolean;
@@ -76,6 +77,7 @@ export default function Edit({ isOpen, onClose, user, token }: Props) {
           onChange={updateUserInfo("email")}
           invalidText="Enter valid email address"
         />
+        <Text mb="0.5rem">Avatar</Text>
         <MyDropZone setFiles={setFiles} />
       </form>
     </Container>

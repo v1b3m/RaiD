@@ -2,6 +2,7 @@ import { Box, BoxProps, Flex } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import Footer from "../Footer";
 import Header from "../Header";
+import Popups from "../Popups";
 
 interface Props {
   children: ReactNode;

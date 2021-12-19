@@ -20,7 +20,9 @@ import { v4 as uuid4 } from "uuid";
 import { cloudName, uploadPreset, backendURL } from "../../../config/fe";
 import { useSession } from "../../../context/SessionContext";
 import { HttpError } from "../../../error";
+import { UseAddPopup } from "../../../state/application/hooks";
 import { IActivePage } from "../../../types/manage";
+import { PopupType } from "../../../types/PopUp";
 import { toBase64, upload } from "../../../utils/cloudinary";
 import CustomButton from "../../CustomButton";
 import MyDropZone from "./MyDropZone";
@@ -52,6 +54,8 @@ interface UploadResponse {
 
 const Analyze: FC<Props> = ({ setActivePage }) => {
   const { data: session } = useSession();
+  const addPopup = UseAddPopup();
+
   const initialState = {
     files: [],
     base64: [],
@@ -77,6 +81,12 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
     dispatch({ isLoading: true });
     dispatch({ error: "" });
     try {
+      if (!state.files.length) {
+        throw new Error("Please upload at least one image");
+      }
+      if (!state.description) {
+        throw new Error("Please enter a description");
+      }
       const images = await upload(state.files, cloudName, uploadPreset);
       const headers = {
         "Content-Type": "application/json",
@@ -96,6 +106,13 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
         throw new HttpError(await response.text(), response.status);
       }
       (await response.json()) as UploadResponse;
+      addPopup({
+        content: {
+          title: "Successfully uploaded images 🚀",
+          summary: "Images successfully uploaded for analysis",
+          type: PopupType.success,
+        },
+      });
       dispatch({ isLoading: false });
       setActivePage("results");
     } catch (error) {
@@ -106,7 +123,13 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
       if (message.includes(`"images":["empty values `)) {
         message = "Please upload at least one image";
       }
-      dispatch({ error: message });
+      addPopup({
+        content: {
+          title: "Validation Error 😢",
+          summary: message,
+          type: PopupType.error,
+        },
+      });
     } finally {
       dispatch({ isLoading: false });
     }

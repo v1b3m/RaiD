@@ -19,17 +19,17 @@ const popUpSlice = createSlice({
         payload: { content, key },
       }: PayloadAction<Omit<Popup, "key" | "show"> & { key?: string }>
     ) => {
-      const isPopupPresent = state.popupList.some(
-        (popup) => popup.content.summary === content.summary
-      );
+      // const isPopupPresent = state.popupList.some(
+      //   (popup) => popup.content.summary === content.summary
+      // );
 
-      if (!isPopupPresent) {
-        state.popupList.push({
-          key: key || nanoid(),
-          show: true,
-          content,
-        });
-      }
+      // if (!isPopupPresent) {
+      state.popupList.push({
+        key: key || nanoid(),
+        show: true,
+        content,
+      });
+      // }
     },
     removePopup: (state, { payload: key }: PayloadAction<string>) => {
       state.popupList.forEach((p) => {

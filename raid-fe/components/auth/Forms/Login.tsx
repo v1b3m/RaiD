@@ -17,6 +17,8 @@ import { ChangeEvent, useEffect, useReducer } from "react";
 import { RegisterResponse } from "../../../pages/api/register";
 import { HttpError } from "../../../error";
 import Cookies from "cookies";
+import { UseAddPopup } from "../../../state/application/hooks";
+import { PopupType } from "../../../types/PopUp";
 
 interface State {
   email: string;
@@ -46,6 +48,8 @@ const Login = () => {
   };
   const reducer = (state: State, value: Value) => ({ ...state, ...value });
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const addPopup = UseAddPopup();
 
   const onChange = (key: Key) => (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ [key]: e.target.value });
@@ -88,6 +92,12 @@ const Login = () => {
       "Content-Type": "application/json",
     };
     try {
+      if (!state.email) {
+        throw new Error("Please enter an email");
+      }
+      if (!state.password) {
+        throw new Error("Please enter a password");
+      }
       if (isRegistered) {
         const body = JSON.stringify({
           email: state.email,
@@ -102,8 +112,18 @@ const Login = () => {
           throw new HttpError(await response.text(), response.status);
         }
         (await response.json()) as RegisterResponse;
+        addPopup({
+          content: {
+            type: PopupType.success,
+            title: "Successfully logged in 🚀",
+            summary: "Welcome back",
+          },
+        });
         window.location.href = "/manage";
       } else {
+        if (!state.name) {
+          throw new Error("Please enter your full name");
+        }
         const body = JSON.stringify({
           email: state.email,
           password: state.password,
@@ -119,6 +139,13 @@ const Login = () => {
           throw new HttpError(await response.text(), response.status);
         }
         (await response.json()) as RegisterResponse;
+        addPopup({
+          content: {
+            type: PopupType.success,
+            title: "Successfully registered 🚀",
+            summary: "Your RaiD account is ready",
+          },
+        });
         window.location.href = "/manage";
       }
     } catch (error) {
@@ -132,7 +159,24 @@ const Login = () => {
       if (message.includes("Invalid credentials")) {
         message = "Invalid username or password";
       }
-      dispatch({ error: message });
+      if (message.includes("email is a required field")) {
+        message = "Email address cannot be left blank";
+      }
+      if (message.includes("password must be at least 8 characters")) {
+        message =
+          "password must be at least 8 characters, containg a lowercase letter, an uppercase letter and a symbol";
+      }
+      if (message.includes("email must be a valid email")) {
+        message = "Please enter a valid email address";
+      }
+      addPopup({
+        content: {
+          type: PopupType.error,
+          title: "Validation error",
+          summary: message,
+        },
+      });
+      // dispatch({ error: message });
     } finally {
       setIsLoading.off();
     }
