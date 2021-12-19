@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import Popups from "../components/Popups";
 import SessionContextProvider from "../context/SessionContext";
 import { persistor, store } from "../state";
 import "../styles/globals.css";
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <Component {...pageProps} />
+            <Popups />
           </PersistGate>
         </Provider>
       </ChakraProvider>
