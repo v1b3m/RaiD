@@ -2,10 +2,11 @@
   "name": "raid-fe",
   "version": "0.1.0",
   "private": true,
+  "main": "app/background.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "nextron",
+    "build": "nextron build",
+    "postinstall": "electron-builder install-app-deps",
     "lint": "next lint",
     "compile": "tsc"
   },
@@ -41,8 +42,12 @@
     "@types/react": "17.0.28",
     "@types/react-table": "^7.7.7",
     "@types/uuid": "^8.3.1",
+    "electron": "^16.0.5",
+    "electron-serve": "^1.1.0",
+    "electron-store": "^8.0.1",
     "eslint": "8.0.0",
     "eslint-config-next": "11.1.2",
+    "nextron": "^7.1.0",
     "typescript": "4.4.3"
   }
 }

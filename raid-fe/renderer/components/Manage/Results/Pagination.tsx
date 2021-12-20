@@ -1,5 +1,5 @@
 import { Box, Input, Select, Flex, Center } from "@chakra-ui/react";
-import CustomButton from "../../../components/CustomButton";
+import CustomButton from "../../CustomButton";
 
 interface Props {
   canPreviousPage: boolean;
