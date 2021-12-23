@@ -1,6 +1,6 @@
-appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2018 Yoshihide Shiono
+appId: com.bse21-16.app
+productName: RaiD
+copyright: Copyright © 2021 BSE21-16
 directories:
   output: dist
   buildResources: resources

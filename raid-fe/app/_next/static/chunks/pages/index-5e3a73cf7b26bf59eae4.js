@@ -76,7 +76,7 @@
       "use strict";
       t.d(r, {
         Z: function () {
-          return x;
+          return v;
         },
       });
       var n = t(2429),
@@ -113,7 +113,7 @@
         }
         return t;
       }
-      function m(e) {
+      function b(e) {
         for (var r = 1; r < arguments.length; r++) {
           var t = null != arguments[r] ? arguments[r] : {};
           r % 2
@@ -132,7 +132,7 @@
         }
         return e;
       }
-      function b(e) {
+      function m(e) {
         var r = e.text,
           t = e.props,
           n = e.uri;
@@ -142,8 +142,8 @@
           children: (0, o.jsx)("a", {
             children: (0, o.jsx)(
               i.x,
-              m(
-                m(
+              b(
+                b(
                   {
                     mx: "2rem",
                     cursor: "pointer",
@@ -162,8 +162,8 @@
         var r = e.props;
         return (0, o.jsx)(
           l.xu,
-          m(
-            m({}, r),
+          b(
+            b({}, r),
             {},
             {
               children: (0, o.jsx)(u.UQ, {
@@ -212,8 +212,8 @@
                           fontSize: "1.1rem",
                           display: { base: "none", md: "flex" },
                           children: [
-                            (0, o.jsx)(b, { text: "Help", uri: "/help" }),
-                            (0, o.jsx)(b, {
+                            (0, o.jsx)(m, { text: "Help", uri: "/help" }),
+                            (0, o.jsx)(m, {
                               text: "Contact Us",
                               uri: "mailto:vibenjamin6@gmail.com",
                             }),
@@ -237,12 +237,12 @@
                       pb: 4,
                       display: { base: "block", md: "none" },
                       children: [
-                        (0, o.jsx)(b, {
+                        (0, o.jsx)(m, {
                           text: "Help",
                           uri: "/help",
                           props: { my: "0.5rem" },
                         }),
-                        (0, o.jsx)(b, {
+                        (0, o.jsx)(m, {
                           text: "Contact Us",
                           uri: "mailto:vibenjamin6@gmail.com?suject=RaidHelp Needed",
                           props: { my: "0.5rem" },
@@ -256,7 +256,7 @@
           )
         );
       }
-      function x(e) {
+      function v(e) {
         var r = e.children,
           t = e.headerProps;
         return (0, o.jsxs)(n.k, {
@@ -294,7 +294,7 @@
         }
         return t;
       }
-      function m(e) {
+      function b(e) {
         for (var r = 1; r < arguments.length; r++) {
           var t = null != arguments[r] ? arguments[r] : {};
           r % 2
@@ -318,10 +318,10 @@
           t = e.LeftIcon,
           n = e.isPassword,
           p = e.type,
-          b = e.onChange,
+          m = e.onChange,
           h = e.isInvalid,
-          x = e.invalidText,
-          v = (e.placeholder, e.value),
+          v = e.invalidText,
+          x = (e.placeholder, e.value),
           y = (0, i.k)(),
           g = (0, a.Z)(y, 2),
           j = g[0],
@@ -339,12 +339,12 @@
                   }),
                 (0, f.jsx)(
                   u.I,
-                  m(
-                    m({}, v && { value: v }),
+                  b(
+                    b({}, x && { value: x }),
                     {},
                     {
                       type: n && !j ? "password" : p,
-                      onChange: b,
+                      onChange: m,
                       isInvalid: h,
                     }
                   )
@@ -373,11 +373,33 @@
                 fontSize: "sm",
                 isTruncated: !0,
                 maxW: "460px",
-                children: x,
+                children: v,
               }),
           ],
         });
       };
+    },
+    6187: function (e, r, t) {
+      "use strict";
+      t.d(r, {
+        hw: function () {
+          return a;
+        },
+        Zm: function () {
+          return i;
+        },
+        d3: function () {
+          return o;
+        },
+        yp: function () {
+          return s;
+        },
+      });
+      var n = t(1497),
+        a = "debug",
+        i = "v1b3m",
+        o = "dvbo6bvu",
+        s = (new (t.n(n)())().secretSync(), "http://127.0.0.1:8000");
     },
     535: function (e, r, t) {
       "use strict";
@@ -454,7 +476,7 @@
       t.r(r),
         t.d(r, {
           default: function () {
-            return ue;
+            return pe;
           },
         });
       var n = t(6677),
@@ -468,19 +490,19 @@
         d = t.n(u),
         f = t(2416),
         p = t(3928),
-        m = t(9957),
-        b = t(7830),
+        b = t(9957),
+        m = t(7830),
         h = t(5623),
-        x = t(6563),
-        v = t(3768),
+        v = t(6563),
+        x = t(3768),
         y = t(6254),
         g = t(4160),
         j = t(9798),
         k = t(1330),
         O = t(1697),
         w = t(5811),
-        P = t(2935),
-        C = t(3900);
+        C = t(2935),
+        P = t(3900);
       t(8315);
       var [E, D] = (0, w.k)({ name: "CheckboxGroupContext", strict: !1 });
       O.Ts;
@@ -498,10 +520,10 @@
             return e;
           }).apply(this, arguments);
       }
-      var B = "custom" in I.E ? I.E.custom(x.m$.svg) : (0, I.E)(x.m$.svg),
-        _ = (e) =>
+      var _ = "custom" in I.E ? I.E.custom(v.m$.svg) : (0, I.E)(v.m$.svg),
+        B = (e) =>
           a.createElement(
-            B,
+            _,
             Z(
               {
                 width: "1.2em",
@@ -527,7 +549,7 @@
           ),
         R = (e) =>
           a.createElement(
-            B,
+            _,
             Z(
               {
                 width: "1.2em",
@@ -588,7 +610,7 @@
                 (t = i[n]), r.indexOf(t) >= 0 || (a[t] = e[t]);
               return a;
             })(e, ["isIndeterminate", "isChecked"]),
-            i = r ? R : _;
+            i = r ? R : B;
           return a.createElement(T, { open: t || r }, a.createElement(i, n));
         },
         L = t(8820),
@@ -607,7 +629,7 @@
             return e;
           }).apply(this, arguments);
       }
-      function A(e) {
+      function G(e) {
         void 0 === e && (e = {});
         var {
             defaultIsChecked: r,
@@ -621,11 +643,11 @@
             isIndeterminate: u,
             isInvalid: d,
             name: p,
-            value: m,
-            id: b,
+            value: b,
+            id: m,
             onBlur: h,
-            onFocus: x,
-            tabIndex: v,
+            onFocus: v,
+            tabIndex: x,
             "aria-label": y,
             "aria-labelledby": g,
             "aria-invalid": O,
@@ -662,16 +684,16 @@
             "aria-invalid",
             "aria-describedby",
           ]),
-          D = (0, P.W)(l),
-          I = (0, P.W)(h),
-          S = (0, P.W)(x),
-          [Z, B] = (0, f.k)(),
-          [_, R] = (0, f.k)(),
+          D = (0, C.W)(l),
+          I = (0, C.W)(h),
+          S = (0, C.W)(v),
+          [Z, _] = (0, f.k)(),
+          [B, R] = (0, f.k)(),
           [T, N] = (0, f.k)(),
-          A = (0, a.useRef)(null),
-          [V, U] = (0, a.useState)(!0),
-          [$, q] = (0, a.useState)(!!t),
-          [H, K] = (0, C.p)(n, $);
+          G = (0, a.useRef)(null),
+          [A, U] = (0, a.useState)(!0),
+          [H, $] = (0, a.useState)(!!t),
+          [q, K] = (0, P.p)(n, H);
         (0, j.ZK)({
           condition: !!r,
           message:
@@ -681,37 +703,37 @@
           (e) => {
             s || o
               ? e.preventDefault()
-              : (H || q(K ? e.target.checked : !!u || e.target.checked),
+              : (q || $(K ? e.target.checked : !!u || e.target.checked),
                 null == D || D(e));
           },
-          [s, o, K, H, u, D]
+          [s, o, K, q, u, D]
         );
         (0, L.G)(() => {
-          A.current && (A.current.indeterminate = Boolean(u));
+          G.current && (G.current.indeterminate = Boolean(u));
         }, [u]);
         var J = o && !i,
-          Q = (0, a.useCallback)(
+          Y = (0, a.useCallback)(
             (e) => {
               " " === e.key && N.on();
             },
             [N]
           ),
-          Y = (0, a.useCallback)(
+          Q = (0, a.useCallback)(
             (e) => {
               " " === e.key && N.off();
             },
             [N]
           );
         (0, L.G)(() => {
-          A.current && A.current.checked !== K && q(A.current.checked);
-        }, [A.current]);
+          G.current && G.current.checked !== K && $(G.current.checked);
+        }, [G.current]);
         var ee = (0, a.useCallback)(
             function (e, r) {
               void 0 === e && (e = {}), void 0 === r && (r = null);
               return M({}, e, {
                 ref: r,
                 "data-active": (0, k.PB)(T),
-                "data-hover": (0, k.PB)(_),
+                "data-hover": (0, k.PB)(B),
                 "data-checked": (0, k.PB)(K),
                 "data-focus": (0, k.PB)(Z),
                 "data-indeterminate": (0, k.PB)(u),
@@ -727,7 +749,7 @@
                 onMouseLeave: (0, j.v0)(e.onMouseLeave, R.off),
               });
             },
-            [T, K, o, Z, _, u, d, s, N, R.off, R.on]
+            [T, K, o, Z, B, u, d, s, N, R.off, R.on]
           ),
           re = (0, a.useCallback)(
             function (e, r) {
@@ -740,9 +762,9 @@
                   }),
                   onClick: (0, j.v0)(e.onClick, () => {
                     var e;
-                    V ||
-                      (null == (e = A.current) || e.click(),
-                      (0, F.T)(A.current, { nextTick: !0 }));
+                    A ||
+                      (null == (e = G.current) || e.click(),
+                      (0, F.T)(G.current, { nextTick: !0 }));
                   }),
                   "data-disabled": (0, k.PB)(o),
                   "data-checked": (0, k.PB)(K),
@@ -750,7 +772,7 @@
                 })
               );
             },
-            [E, o, K, d, V]
+            [E, o, K, d, A]
           ),
           te = (0, a.useCallback)(
             function (e, r) {
@@ -758,17 +780,17 @@
                 void 0 === e && (e = {}),
                 void 0 === r && (r = null),
                 M({}, e, {
-                  ref: (0, z.l)(A, r),
+                  ref: (0, z.l)(G, r),
                   type: "checkbox",
                   name: p,
-                  value: m,
-                  id: b,
-                  tabIndex: v,
+                  value: b,
+                  id: m,
+                  tabIndex: x,
                   onChange: (0, j.v0)(e.onChange, X),
-                  onBlur: (0, j.v0)(e.onBlur, I, B.off),
-                  onFocus: (0, j.v0)(e.onFocus, S, B.on),
-                  onKeyDown: (0, j.v0)(e.onKeyDown, Q),
-                  onKeyUp: (0, j.v0)(e.onKeyUp, Y),
+                  onBlur: (0, j.v0)(e.onBlur, I, _.off),
+                  onFocus: (0, j.v0)(e.onFocus, S, _.on),
+                  onKeyDown: (0, j.v0)(e.onKeyDown, Y),
+                  onKeyUp: (0, j.v0)(e.onKeyUp, Q),
                   required: c,
                   checked: K,
                   disabled: J,
@@ -784,15 +806,15 @@
             },
             [
               p,
-              m,
               b,
+              m,
               X,
-              B.off,
-              B.on,
+              _.off,
+              _.on,
               I,
               S,
-              Q,
               Y,
+              Q,
               c,
               K,
               J,
@@ -803,7 +825,7 @@
               d,
               w,
               o,
-              v,
+              x,
             ]
           ),
           ne = (0, a.useCallback)(
@@ -813,8 +835,8 @@
                 void 0 === r && (r = null),
                 M({}, e, {
                   ref: r,
-                  onMouseDown: (0, j.v0)(e.onMouseDown, G),
-                  onTouchStart: (0, j.v0)(e.onTouchStart, G),
+                  onMouseDown: (0, j.v0)(e.onMouseDown, V),
+                  onTouchStart: (0, j.v0)(e.onTouchStart, V),
                   "data-disabled": (0, k.PB)(o),
                   "data-checked": (0, k.PB)(K),
                   "data-invalid": (0, k.PB)(d),
@@ -829,7 +851,7 @@
             isFocused: Z,
             isChecked: K,
             isActive: T,
-            isHovered: _,
+            isHovered: B,
             isIndeterminate: u,
             isDisabled: o,
             isReadOnly: s,
@@ -842,11 +864,11 @@
           htmlProps: E,
         };
       }
-      function G(e) {
+      function V(e) {
         e.preventDefault(), e.stopPropagation();
       }
-      function V() {
-        return (V =
+      function A() {
+        return (A =
           Object.assign ||
           function (e) {
             for (var r = 1; r < arguments.length; r++) {
@@ -857,7 +879,7 @@
             return e;
           }).apply(this, arguments);
       }
-      var U = (0, x.m$)("span", {
+      var U = (0, v.m$)("span", {
           baseStyle: {
             display: "inline-flex",
             alignItems: "center",
@@ -867,7 +889,7 @@
             flexShrink: 0,
           },
         }),
-        $ = (0, x.m$)("label", {
+        H = (0, v.m$)("label", {
           baseStyle: {
             cursor: "pointer",
             display: "inline-flex",
@@ -877,9 +899,9 @@
             _disabled: { cursor: "not-allowed" },
           },
         }),
-        q = (0, v.G)((e, r) => {
+        $ = (0, x.G)((e, r) => {
           var t = D(),
-            n = V({}, t, e),
+            n = A({}, t, e),
             i = (0, y.j)("Checkbox", n),
             o = (0, g.Lr)(e),
             {
@@ -890,8 +912,8 @@
               iconSize: d,
               icon: f = a.createElement(N, null),
               isChecked: p,
-              isDisabled: m = null == t ? void 0 : t.isDisabled,
-              onChange: b,
+              isDisabled: b = null == t ? void 0 : t.isDisabled,
+              onChange: m,
             } = o,
             h = (function (e, r) {
               if (null == e) return {};
@@ -913,20 +935,20 @@
               "isDisabled",
               "onChange",
             ]),
-            v = p;
-          null != t && t.value && o.value && (v = t.value.includes(o.value));
-          var O = b;
-          null != t && t.onChange && o.value && (O = (0, j.PP)(t.onChange, b));
+            x = p;
+          null != t && t.value && o.value && (x = t.value.includes(o.value));
+          var O = m;
+          null != t && t.onChange && o.value && (O = (0, j.PP)(t.onChange, m));
           var {
               state: w,
-              getInputProps: P,
-              getCheckboxProps: C,
+              getInputProps: C,
+              getCheckboxProps: P,
               getLabelProps: E,
               getRootProps: I,
-            } = A(V({}, h, { isDisabled: m, isChecked: v, onChange: O })),
+            } = G(A({}, h, { isDisabled: b, isChecked: x, onChange: O })),
             S = a.useMemo(
               () =>
-                V(
+                A(
                   {
                     opacity: w.isChecked || w.isIndeterminate ? 1 : 0,
                     transform:
@@ -946,8 +968,8 @@
               isChecked: w.isChecked,
             });
           return a.createElement(
-            $,
-            V(
+            H,
+            A(
               {
                 __css: i.container,
                 className: (0, k.cx)("chakra-checkbox", c),
@@ -956,28 +978,28 @@
             ),
             a.createElement(
               "input",
-              V({ className: "chakra-checkbox__input" }, P({}, r))
+              A({ className: "chakra-checkbox__input" }, C({}, r))
             ),
             a.createElement(
               U,
-              V(
+              A(
                 { __css: i.control, className: "chakra-checkbox__control" },
-                C()
+                P()
               ),
               Z
             ),
             l &&
               a.createElement(
-                x.m$.span,
-                V({ className: "chakra-checkbox__label" }, E(), {
-                  __css: V({ marginStart: s }, i.label),
+                v.m$.span,
+                A({ className: "chakra-checkbox__label" }, E(), {
+                  __css: A({ marginStart: s }, i.label),
                 }),
                 l
               )
           );
         });
-      O.Ts && (q.displayName = "Checkbox");
-      var H = t(4566),
+      O.Ts && ($.displayName = "Checkbox");
+      var q = t(4566),
         K = t(825),
         X = t(4246);
       function J(e, r) {
@@ -992,7 +1014,7 @@
         }
         return t;
       }
-      function Q(e) {
+      function Y(e) {
         for (var r = 1; r < arguments.length; r++) {
           var t = null != arguments[r] ? arguments[r] : {};
           r % 2
@@ -1011,14 +1033,14 @@
         }
         return e;
       }
-      var Y = function (e) {
+      var Q = function (e) {
           var r = e.label,
             t = e.props,
             n = e.onClick;
           return (0, X.jsx)(
             h.x,
-            Q(
-              Q(
+            Y(
+              Y(
                 {
                   textColor: "brand.blueCrayola",
                   cursor: "pointer",
@@ -1036,8 +1058,12 @@
         re = t(7228),
         te = t(535),
         ne = t(4582),
-        ae = t(4518);
-      function ie(e, r) {
+        ae = t(4518),
+        ie = t(6187),
+        oe = t(763),
+        se = t(4128),
+        ce = t(4357);
+      function le(e, r) {
         var t = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
@@ -1049,16 +1075,16 @@
         }
         return t;
       }
-      function oe(e) {
+      function ue(e) {
         for (var r = 1; r < arguments.length; r++) {
           var t = null != arguments[r] ? arguments[r] : {};
           r % 2
-            ? ie(Object(t), !0).forEach(function (r) {
+            ? le(Object(t), !0).forEach(function (r) {
                 (0, c.Z)(e, r, t[r]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t))
-            : ie(Object(t)).forEach(function (r) {
+            : le(Object(t)).forEach(function (r) {
                 Object.defineProperty(
                   e,
                   r,
@@ -1068,22 +1094,22 @@
         }
         return e;
       }
-      var se = function () {
+      var de = function () {
           var e = (0, f.k)(),
             r = (0, l.Z)(e, 2),
             t = r[0],
             n = r[1],
             o = (0, f.k)(),
             u = (0, l.Z)(o, 2),
-            x = u[0],
-            v = u[1],
+            v = u[0],
+            x = u[1],
             y = (0, f.k)(),
             g = (0, l.Z)(y, 2),
             j = g[0],
             k = g[1],
             O = (0, a.useReducer)(
               function (e, r) {
-                return oe(oe({}, e), r);
+                return ue(ue({}, e), r);
               },
               {
                 email: "",
@@ -1096,17 +1122,17 @@
               }
             ),
             w = O[0],
-            P = O[1],
-            C = (0, ne.LI)(),
+            C = O[1],
+            P = (0, ne.LI)(),
             E = function (e) {
               return function (r) {
-                P((0, c.Z)({}, e, r.target.value));
+                C((0, c.Z)({}, e, r.target.value));
               };
             };
           (0, a.useEffect)(
             function () {
               var e;
-              P({
+              C({
                 isValidEmail:
                   !w.email ||
                   ((e = w.email),
@@ -1120,7 +1146,7 @@
             (0, a.useEffect)(
               function () {
                 var e;
-                P({
+                C({
                   isValidPassword:
                     !w.password ||
                     ((e = w.password),
@@ -1134,7 +1160,7 @@
             (0, a.useEffect)(
               function () {
                 var e;
-                P({
+                C({
                   isValidFullName:
                     !w.name ||
                     ((e = w.name), /^[a-zA-Z ]{2,30}$/.test(String(e))),
@@ -1142,171 +1168,198 @@
               },
               [w.name]
             );
-          var D = (function () {
-            var e = (0, s.Z)(
-              d().mark(function e() {
-                var r, n, a, i, o, s;
-                return d().wrap(
-                  function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          if (
-                            (k.on(),
-                            P({ error: "" }),
-                            (r = { "Content-Type": "application/json" }),
-                            (e.prev = 3),
-                            w.email)
-                          ) {
-                            e.next = 6;
-                            break;
-                          }
-                          throw new Error("Please enter an email");
-                        case 6:
-                          if (w.password) {
-                            e.next = 8;
-                            break;
-                          }
-                          throw new Error("Please enter a password");
-                        case 8:
-                          if (!t) {
-                            e.next = 26;
-                            break;
-                          }
-                          return (
-                            (n = JSON.stringify({
-                              email: w.email,
-                              password: w.password,
-                            })),
-                            (e.next = 12),
-                            fetch("/api/sign-in", {
-                              body: n,
-                              method: "POST",
-                              headers: r,
-                            })
-                          );
-                        case 12:
-                          if (((a = e.sent), ![400, 500].includes(a.status))) {
-                            e.next = 20;
-                            break;
-                          }
-                          return (e.t0 = te.o), (e.next = 17), a.text();
-                        case 17:
-                          throw (
-                            ((e.t1 = e.sent),
-                            (e.t2 = a.status),
-                            new e.t0(e.t1, e.t2))
-                          );
-                        case 20:
-                          return (e.next = 22), a.json();
-                        case 22:
-                          C({
-                            content: {
-                              type: ae.k.success,
-                              title: "Successfully logged in \ud83d\ude80",
-                              summary: "Welcome back",
-                            },
-                          }),
-                            (window.location.href = "/manage"),
-                            (e.next = 43);
-                          break;
-                        case 26:
-                          if (w.name) {
-                            e.next = 28;
-                            break;
-                          }
-                          throw new Error("Please enter your full name");
-                        case 28:
-                          return (
-                            (i = JSON.stringify({
-                              email: w.email,
-                              password: w.password,
-                              firstName: w.name.split(" ")[0],
-                              lastName: w.name.split(" ")[1],
-                            })),
-                            (e.next = 31),
-                            fetch("/api/register", {
-                              body: i,
-                              method: "POST",
-                              headers: r,
-                            })
-                          );
-                        case 31:
-                          if (((o = e.sent), ![400, 500].includes(o.status))) {
-                            e.next = 39;
-                            break;
-                          }
-                          return (e.t3 = te.o), (e.next = 36), o.text();
-                        case 36:
-                          throw (
-                            ((e.t4 = e.sent),
-                            (e.t5 = o.status),
-                            new e.t3(e.t4, e.t5))
-                          );
-                        case 39:
-                          return (e.next = 41), o.json();
-                        case 41:
-                          C({
-                            content: {
-                              type: ae.k.success,
-                              title: "Successfully registered \ud83d\ude80",
-                              summary: "Your RaiD account is ready",
-                            },
-                          }),
-                            (window.location.href = "/manage");
-                        case 43:
-                          e.next = 55;
-                          break;
-                        case 45:
-                          (e.prev = 45),
-                            (e.t6 = e.catch(3)),
-                            (s = e.t6.message).includes(
-                              "lastName is a required field"
-                            ) && (s = "Please enter your last name"),
-                            s.includes("user with this email already exists") &&
-                              (s = "User with this email already exists"),
-                            s.includes("Invalid credentials") &&
-                              (s = "Invalid username or password"),
-                            s.includes("email is a required field") &&
-                              (s = "Email address cannot be left blank"),
-                            s.includes(
-                              "password must be at least 8 characters"
-                            ) &&
-                              (s =
-                                "password must be at least 8 characters, containg a lowercase letter, an uppercase letter and a symbol"),
-                            s.includes("email must be a valid email") &&
-                              (s = "Please enter a valid email address"),
-                            C({
+          var D = (0, oe._g)(),
+            I = (0, se.xh)(),
+            S = (0, ce.cd)(),
+            Z = (function () {
+              var e = (0, s.Z)(
+                d().mark(function e() {
+                  var r, n, a, i, o, s, c, l, u, f;
+                  return d().wrap(
+                    function (e) {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            if (
+                              (k.on(),
+                              C({ error: "" }),
+                              (r = { "Content-Type": "application/json" }),
+                              (e.prev = 3),
+                              w.email)
+                            ) {
+                              e.next = 6;
+                              break;
+                            }
+                            throw new Error("Please enter an email");
+                          case 6:
+                            if (w.password) {
+                              e.next = 8;
+                              break;
+                            }
+                            throw new Error("Please enter a password");
+                          case 8:
+                            if (!t) {
+                              e.next = 33;
+                              break;
+                            }
+                            return (
+                              (n = JSON.stringify({
+                                email: w.email,
+                                password: w.password,
+                              })),
+                              (e.next = 12),
+                              fetch("".concat(ie.yp, "/auth/login/"), {
+                                body: n,
+                                method: "POST",
+                                headers: r,
+                              })
+                            );
+                          case 12:
+                            if (((a = e.sent), 200 !== a.status)) {
+                              e.next = 22;
+                              break;
+                            }
+                            return (e.next = 17), a.json();
+                          case 17:
+                            (i = e.sent),
+                              (o = i.access),
+                              (s = i.user),
+                              I(s),
+                              D({
+                                status: "authenticated",
+                                data: { token: o },
+                              }),
+                              S();
+                          case 22:
+                            if (![400, 500].includes(a.status)) {
+                              e.next = 29;
+                              break;
+                            }
+                            return (e.t0 = te.o), (e.next = 26), a.text();
+                          case 26:
+                            throw (
+                              ((e.t1 = e.sent),
+                              (e.t2 = a.status),
+                              new e.t0(e.t1, e.t2))
+                            );
+                          case 29:
+                            P({
                               content: {
-                                type: ae.k.error,
-                                title: "Validation error",
-                                summary: s,
+                                type: ae.k.success,
+                                title: "Successfully logged in \ud83d\ude80",
+                                summary: "Welcome back",
                               },
-                            });
-                        case 55:
-                          return (e.prev = 55), k.off(), e.finish(55);
-                        case 58:
-                        case "end":
-                          return e.stop();
-                      }
-                  },
-                  e,
-                  null,
-                  [[3, 45, 55, 58]]
-                );
-              })
-            );
-            return function () {
-              return e.apply(this, arguments);
-            };
-          })();
+                            }),
+                              (window.location.href = "/manage"),
+                              (e.next = 54);
+                            break;
+                          case 33:
+                            if (w.name) {
+                              e.next = 35;
+                              break;
+                            }
+                            throw new Error("Please enter your full name");
+                          case 35:
+                            return (
+                              (c = JSON.stringify({
+                                email: w.email,
+                                password: w.password,
+                                first_name: w.name.split(" ")[0],
+                                last_name: w.name.split(" ")[1],
+                              })),
+                              (e.next = 38),
+                              fetch("".concat(ie.yp, "/auth/register/"), {
+                                body: c,
+                                method: "POST",
+                                headers: r,
+                              })
+                            );
+                          case 38:
+                            if (
+                              ((l = e.sent), ![400, 500].includes(l.status))
+                            ) {
+                              e.next = 46;
+                              break;
+                            }
+                            return (e.t3 = te.o), (e.next = 43), l.text();
+                          case 43:
+                            throw (
+                              ((e.t4 = e.sent),
+                              (e.t5 = l.status),
+                              new e.t3(e.t4, e.t5))
+                            );
+                          case 46:
+                            return (e.next = 48), l.json();
+                          case 48:
+                            (u = e.sent),
+                              I(u.user),
+                              D({
+                                status: "authenticated",
+                                data: { token: u.access },
+                              }),
+                              S(),
+                              P({
+                                content: {
+                                  type: ae.k.success,
+                                  title: "Successfully registered \ud83d\ude80",
+                                  summary: "Your RaiD account is ready",
+                                },
+                              }),
+                              (window.location.href = "/manage");
+                          case 54:
+                            e.next = 66;
+                            break;
+                          case 56:
+                            (e.prev = 56),
+                              (e.t6 = e.catch(3)),
+                              (f = e.t6.message).includes(
+                                "lastName is a required field"
+                              ) && (f = "Please enter your last name"),
+                              f.includes(
+                                "user with this email already exists"
+                              ) && (f = "User with this email already exists"),
+                              f.includes("Invalid credentials") &&
+                                (f = "Invalid username or password"),
+                              f.includes("email is a required field") &&
+                                (f = "Email address cannot be left blank"),
+                              f.includes(
+                                "password must be at least 8 characters"
+                              ) &&
+                                (f =
+                                  "password must be at least 8 characters, containg a lowercase letter, an uppercase letter and a symbol"),
+                              f.includes("email must be a valid email") &&
+                                (f = "Please enter a valid email address"),
+                              P({
+                                content: {
+                                  type: ae.k.error,
+                                  title: "Validation error",
+                                  summary: f,
+                                },
+                              });
+                          case 66:
+                            return (e.prev = 66), k.off(), e.finish(66);
+                          case 69:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[3, 56, 66, 69]]
+                  );
+                })
+              );
+              return function () {
+                return e.apply(this, arguments);
+              };
+            })();
           return (0, X.jsxs)(p.r, {
             templateColumns: { lg: "repeat(2, 1fr)" },
             gap: "0",
             bg: "brand.spaceCadet",
             borderRadius: { base: "1rem", md: "2rem", lg: "4rem" },
             children: [
-              (0, X.jsx)(m.E, {
+              (0, X.jsx)(b.E, {
                 src: "/20211107_170648.jpg",
                 h: "full",
                 borderTopLeftRadius: { base: "1rem", md: "2rem", lg: "4rem" },
@@ -1320,7 +1373,7 @@
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize: { xl: "1.2rem" },
-                children: (0, X.jsxs)(b.xu, {
+                children: (0, X.jsxs)(m.xu, {
                   minW: { lg: "29.343rem" },
                   children: [
                     (0, X.jsx)(h.x, {
@@ -1328,7 +1381,7 @@
                       fontSize: { base: "1.5rem", md: "2rem", xl: "3rem" },
                       children: t ? "Welcome back" : "Get started",
                     }),
-                    (0, X.jsxs)(b.xu, {
+                    (0, X.jsxs)(m.xu, {
                       my: { base: "0.5rem", xl: "1rem" },
                       children: [
                         (0, X.jsxs)(h.x, {
@@ -1340,7 +1393,7 @@
                             " ",
                           ],
                         }),
-                        (0, X.jsx)(Y, {
+                        (0, X.jsx)(Q, {
                           label: t ? "Register" : "Log In",
                           props: { display: "inline" },
                           onClick: n[t ? "off" : "on"],
@@ -1354,11 +1407,11 @@
                         maxW: "460px",
                         children: w.error,
                       }),
-                    (0, X.jsxs)(b.xu, {
+                    (0, X.jsxs)(m.xu, {
                       children: [
                         (0, X.jsx)(ee.Z, {
                           label: "Email address",
-                          LeftIcon: H.ixJ,
+                          LeftIcon: q.ixJ,
                           onChange: E("email"),
                           isInvalid: !w.isValidEmail,
                           invalidText: "Please enter a valid email address",
@@ -1375,7 +1428,7 @@
                           }),
                         (0, X.jsx)(ee.Z, {
                           label: "Password",
-                          LeftIcon: H.Tmq,
+                          LeftIcon: q.Tmq,
                           isPassword: !0,
                           onChange: E("password"),
                           isInvalid: !w.isValidPassword,
@@ -1383,14 +1436,14 @@
                             "Password must be at least 8 characters long, contain at least one number, one uppercase letter and one special character",
                         }),
                         !t &&
-                          (0, X.jsx)(b.xu, {
-                            children: (0, X.jsx)(q, {
+                          (0, X.jsx)(m.xu, {
+                            children: (0, X.jsx)($, {
                               mb: "1.5rem",
-                              isChecked: x,
+                              isChecked: v,
                               onChange: function () {
-                                return v.toggle();
+                                return x.toggle();
                               },
-                              children: (0, X.jsxs)(b.xu, {
+                              children: (0, X.jsxs)(m.xu, {
                                 fontSize: { xl: "1.2rem" },
                                 children: [
                                   (0, X.jsx)(h.x, {
@@ -1398,7 +1451,7 @@
                                     textColor: "brand.coolGrey",
                                     children: "I agree to Raid's",
                                   }),
-                                  (0, X.jsx)(Y, {
+                                  (0, X.jsx)(Q, {
                                     label: " Terms of Service",
                                     props: { display: "inline" },
                                   }),
@@ -1407,7 +1460,7 @@
                                     textColor: "brand.coolGrey",
                                     children: [" ", "and"],
                                   }),
-                                  (0, X.jsx)(Y, {
+                                  (0, X.jsx)(Q, {
                                     label: " Privacy Policy",
                                     props: { display: "inline" },
                                   }),
@@ -1416,8 +1469,8 @@
                             }),
                           }),
                         (0, X.jsx)(K.Z, {
-                          onClick: D,
-                          isDisabled: !x && !t,
+                          onClick: Z,
+                          isDisabled: !v && !t,
                           label: t ? "Login" : "Register",
                           props: { width: "100%" },
                           isLoading: j,
@@ -1430,7 +1483,7 @@
             ],
           });
         },
-        ce = function () {
+        fe = function () {
           return (0, X.jsx)(o.Z, {
             children: (0, X.jsx)(i.k, {
               px: {
@@ -1447,24 +1500,131 @@
               flexGrow: 1,
               alignItems: "center",
               justifyContent: "center",
-              children: (0, X.jsx)(se, {}),
+              children: (0, X.jsx)(de, {}),
             }),
           });
         },
-        le = t(1966),
-        ue = function () {
+        pe = function () {
           var e = (0, n.useRouter)(),
-            r = (0, le.kP)().data;
+            r = (0, ce.NH)();
           return (
             (0, a.useEffect)(
               function () {
-                r && e && e.push("/manage");
+                r.isLoggedIn && e && e.push("/manage");
               },
-              [e, r]
+              [e, r.isLoggedIn]
             ),
-            (0, X.jsx)(ce, {})
+            (0, X.jsx)(fe, {})
           );
         };
+    },
+    4357: function (e, r, t) {
+      "use strict";
+      t.d(r, {
+        NH: function () {
+          return o;
+        },
+        cd: function () {
+          return s;
+        },
+        UJ: function () {
+          return c;
+        },
+      });
+      var n = t(7378),
+        a = t(9086),
+        i = t(1327);
+      function o() {
+        return (0, a.v9)(function (e) {
+          return e.auth;
+        });
+      }
+      function s() {
+        var e = (0, a.I0)();
+        return (0, n.useCallback)(
+          function () {
+            e((0, i.Ib)());
+          },
+          [e]
+        );
+      }
+      function c() {
+        var e = (0, a.I0)();
+        return (0, n.useCallback)(
+          function () {
+            e((0, i.ni)());
+          },
+          [e]
+        );
+      }
+    },
+    763: function (e, r, t) {
+      "use strict";
+      t.d(r, {
+        _g: function () {
+          return o;
+        },
+        VO: function () {
+          return s;
+        },
+      });
+      var n = t(7378),
+        a = t(9086),
+        i = t(4242);
+      function o() {
+        var e = (0, a.I0)();
+        return (0, n.useCallback)(
+          function (r) {
+            e((0, i.KY)(r));
+          },
+          [e]
+        );
+      }
+      function s() {
+        return (0, a.v9)(function (e) {
+          return e.session;
+        });
+      }
+    },
+    4128: function (e, r, t) {
+      "use strict";
+      t.d(r, {
+        xh: function () {
+          return o;
+        },
+        UY: function () {
+          return s;
+        },
+        Ve: function () {
+          return c;
+        },
+      });
+      var n = t(7378),
+        a = t(9086),
+        i = t(6026);
+      function o() {
+        var e = (0, a.I0)();
+        return (0, n.useCallback)(
+          function (r) {
+            e((0, i.RG)(r));
+          },
+          [e]
+        );
+      }
+      function s() {
+        var e = (0, a.I0)();
+        return (0, n.useCallback)(
+          function (r) {
+            e((0, i.ck)(r));
+          },
+          [e]
+        );
+      }
+      function c() {
+        return (0, a.v9)(function (e) {
+          return e.user.profile;
+        });
+      }
     },
     4518: function (e, r, t) {
       "use strict";
@@ -1489,9 +1649,15 @@
         },
       ]);
     },
+    5545: function () {},
+    6047: function () {},
+    8028: function () {},
+    695: function () {},
+    471: function () {},
+    1632: function () {},
   },
   function (e) {
-    e.O(0, [794, 997, 969, 552, 230, 774, 888, 179], function () {
+    e.O(0, [794, 997, 969, 552, 577, 774, 888, 179], function () {
       return (r = 4423), e((e.s = r));
       var r;
     });
