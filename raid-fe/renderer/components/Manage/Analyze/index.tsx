@@ -17,10 +17,10 @@ import {
   useReducer,
 } from "react";
 import { v4 as uuid4 } from "uuid";
-import { cloudName, uploadPreset, backendURL } from "../../../config/fe";
-import { useSession } from "../../../context/SessionContext";
+import { backendURL, cloudName, uploadPreset } from "../../../config/fe";
 import { HttpError } from "../../../error";
 import { UseAddPopup } from "../../../state/application/hooks";
+import { UseGetSession } from "../../../state/session/hooks";
 import { IActivePage } from "../../../types/manage";
 import { PopupType } from "../../../types/PopUp";
 import { toBase64, upload } from "../../../utils/cloudinary";
@@ -53,8 +53,8 @@ interface UploadResponse {
 }
 
 const Analyze: FC<Props> = ({ setActivePage }) => {
-  const { data: session } = useSession();
   const addPopup = UseAddPopup();
+  const { data: session } = UseGetSession();
 
   const initialState = {
     files: [],

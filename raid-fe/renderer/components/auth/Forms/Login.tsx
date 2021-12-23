@@ -19,6 +19,14 @@ import { HttpError } from "../../../error";
 import Cookies from "cookies";
 import { UseAddPopup } from "../../../state/application/hooks";
 import { PopupType } from "../../../types/PopUp";
+import { backendURL } from "../../../config/fe";
+import { SignInResponse } from "../../../pages/api/sign-in";
+import { defaultCookieConfig } from "../../../config/be";
+import { encrypt } from "../../../utils/crypto";
+import { modifyToken } from "../../../utils/jwt";
+import { UseAddSession } from "../../../state/session/hooks";
+import { UseAddUser } from "../../../state/user/hooks";
+import { UseLogin } from "../../../state/auth/hooks";
 
 interface State {
   email: string;
@@ -85,6 +93,10 @@ const Login = () => {
     dispatch({ isValidFullName: !state.name || isValidFullName(state.name) });
   }, [state.name]);
 
+  const setSession = UseAddSession();
+  const setUser = UseAddUser();
+  const logIn = UseLogin();
+
   const onSubmit = async () => {
     setIsLoading.on();
     dispatch({ error: "" });
@@ -103,15 +115,27 @@ const Login = () => {
           email: state.email,
           password: state.password,
         });
-        const response = await fetch("/api/sign-in", {
+        const response = await fetch(`${backendURL}/auth/login/`, {
           body,
           method: "POST",
           headers,
         });
+        const { status } = response;
+        if (status === 200) {
+          const json = (await response.json()) as SignInResponse;
+          const { access, user } = json;
+          setUser(user);
+          setSession({
+            status: "authenticated",
+            data: {
+              token: access,
+            },
+          });
+          logIn();
+        }
         if ([400, 500].includes(response.status)) {
           throw new HttpError(await response.text(), response.status);
         }
-        (await response.json()) as RegisterResponse;
         addPopup({
           content: {
             type: PopupType.success,
@@ -127,10 +151,10 @@ const Login = () => {
         const body = JSON.stringify({
           email: state.email,
           password: state.password,
-          firstName: state.name.split(" ")[0],
-          lastName: state.name.split(" ")[1],
+          first_name: state.name.split(" ")[0],
+          last_name: state.name.split(" ")[1],
         });
-        const response = await fetch("/api/register", {
+        const response = await fetch(`${backendURL}/auth/register/`, {
           body,
           method: "POST",
           headers,
@@ -138,7 +162,15 @@ const Login = () => {
         if ([400, 500].includes(response.status)) {
           throw new HttpError(await response.text(), response.status);
         }
-        (await response.json()) as RegisterResponse;
+        const json = (await response.json()) as RegisterResponse;
+        setUser(json.user);
+        setSession({
+          status: "authenticated",
+          data: {
+            token: json.access,
+          },
+        });
+        logIn();
         addPopup({
           content: {
             type: PopupType.success,

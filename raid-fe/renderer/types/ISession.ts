@@ -1,8 +1,4 @@
-import { DecodedToken } from "../utils/jwt";
-import User from "./User";
-
-export type Decoded = DecodedToken & { user: User };
-interface Data extends Decoded {
+interface Data {
   token: string;
 }
 

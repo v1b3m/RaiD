@@ -1,9 +1,9 @@
 import { Box, Center, Grid, Spinner, useBoolean } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSession } from "../../context/SessionContext";
+import { UseGetSession } from "../../state/session/hooks";
+import { UseGetUser } from "../../state/user/hooks";
 import { IActivePage } from "../../types/manage";
-import User from "../../types/User";
 import Layout from "../Layout";
 import Analyze from "./Analyze";
 import Buttons from "./Buttons";
@@ -11,12 +11,13 @@ import Profile from "./Profile";
 import Results from "./Results";
 
 export default function Manage() {
-  const { data: session } = useSession();
   const [activePage, setActivePage] = useState<IActivePage>("analyze");
   const [isLoading, setIsLoading] = useBoolean();
   const router = useRouter();
 
   const query = router.query as { section: string };
+  const user = UseGetUser();
+  const session = UseGetSession();
 
   useEffect(() => {
     const sections: IActivePage[] = ["account", "analyze", "results"];
@@ -49,10 +50,7 @@ export default function Manage() {
           )}
           {activePage === "results" && <Results />}
           {activePage === "account" && (
-            <Profile
-              user={session?.user as User}
-              token={session?.token as string}
-            />
+            <Profile user={user} token={session.data.token} />
           )}
         </Box>
       </Grid>
