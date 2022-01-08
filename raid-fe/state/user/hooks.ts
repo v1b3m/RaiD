@@ -1,15 +1,16 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import User from "../../types/User";
 import { AppDispatch, RootState } from "../index";
-import { removeProfile, setProfile, updateProfile, UserProfile } from "./index";
+import { removeProfile, setProfile, updateProfile } from "./index";
 
-export type UserMutation = (user: UserProfile) => void;
+export type UserMutation = (user: User) => void;
 export type RemoveUser = () => void;
 
 export function UseAddUser(): UserMutation {
   const dispatch = useDispatch<AppDispatch>();
   return useCallback(
-    (user: UserProfile) => {
+    (user: User) => {
       dispatch(setProfile(user));
     },
     [dispatch]
@@ -19,7 +20,7 @@ export function UseAddUser(): UserMutation {
 export function UseUpdateUser(): UserMutation {
   const dispatch = useDispatch<AppDispatch>();
   return useCallback(
-    (user: UserProfile) => {
+    (user: User) => {
       dispatch(updateProfile(user));
     },
     [dispatch]
@@ -33,7 +34,7 @@ export function UseRemoveUser(): RemoveUser {
   }, [dispatch]);
 }
 
-export function UseGetUser(): UserProfile | Record<string, any> {
+export function UseGetUser(): User {
   return useSelector<RootState, RootState["user"]["profile"]>(
     ({ user: { profile } }) => profile
   );

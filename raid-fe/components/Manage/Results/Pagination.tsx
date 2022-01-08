@@ -1,5 +1,5 @@
 import { Box, Input, Select, Flex, Center } from "@chakra-ui/react";
-import CustomButton from "../../../components/CustomButton";
+import CustomButton from "../../CustomButton";
 
 interface Props {
   canPreviousPage: boolean;
@@ -74,7 +74,7 @@ const Pagination = ({
         <Select
           value={pageSize}
           onChange={(e) => setPageSize(Number(e.target.value))}
-          bg="brand.raisinBlack"
+          bg="brand.raisinBlack.1"
         >
           {[10, 20, 30, 40, 50].map((pageSize) => (
             <option

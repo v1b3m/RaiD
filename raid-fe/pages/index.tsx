@@ -2,17 +2,17 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Login from "../components/auth/Login";
-import { useSession } from "../context/SessionContext";
+import { UseGetAuth } from "../state/auth/hooks";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const auth = UseGetAuth();
 
   useEffect(() => {
-    if (session && router) {
+    if (auth.isLoggedIn && router) {
       router.push("/manage");
     }
-  }, [router, session]);
+  }, [router, auth.isLoggedIn]);
 
   return <Login />;
 };
