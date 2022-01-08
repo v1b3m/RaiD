@@ -19,6 +19,8 @@ export default function Manage() {
   const user = UseGetUser();
   const session = UseGetSession();
 
+  console.log({ user, session });
+
   useEffect(() => {
     const sections: IActivePage[] = ["account", "analyze", "results"];
 

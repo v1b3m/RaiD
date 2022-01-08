@@ -12,10 +12,12 @@ if (isProd) {
 
 (async () => {
   await app.whenReady();
+  app.commandLine.appendSwitch("disable-features", "OutOfBlinkCors");
 
   const mainWindow = createWindow("main", {
     width: 1440,
     height: 900,
+    webPreferences: { webSecurity: false },
   });
 
   if (isProd) {

@@ -6,27 +6,23 @@ import {
   Image,
   Text,
   useBoolean,
-  useCheckbox,
 } from "@chakra-ui/react";
+import md5 from "crypto-js/md5";
+import { ChangeEvent, useEffect, useReducer } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import { MdEmail, MdLock } from "react-icons/md";
+import { backendURL } from "../../../config/fe";
+import { HttpError } from "../../../error";
+import { RegisterResponse } from "../../../pages/api/register";
+import { SignInResponse } from "../../../pages/api/sign-in";
+import { UseAddPopup } from "../../../state/application/hooks";
+import { UseLogin } from "../../../state/auth/hooks";
+import { UseAddSession } from "../../../state/session/hooks";
+import { UseAddUser } from "../../../state/user/hooks";
+import { PopupType } from "../../../types/PopUp";
 import CustomButton from "../../CustomButton";
 import CustomLink from "../../Text/Link";
 import CustomInput from "./CustomInput";
-import { FaUserCircle } from "react-icons/fa";
-import { ChangeEvent, useEffect, useReducer } from "react";
-import { RegisterResponse } from "../../../pages/api/register";
-import { HttpError } from "../../../error";
-import Cookies from "cookies";
-import { UseAddPopup } from "../../../state/application/hooks";
-import { PopupType } from "../../../types/PopUp";
-import { backendURL } from "../../../config/fe";
-import { SignInResponse } from "../../../pages/api/sign-in";
-import { defaultCookieConfig } from "../../../config/be";
-import { encrypt } from "../../../utils/crypto";
-import { modifyToken } from "../../../utils/jwt";
-import { UseAddSession } from "../../../state/session/hooks";
-import { UseAddUser } from "../../../state/user/hooks";
-import { UseLogin } from "../../../state/auth/hooks";
 
 interface State {
   email: string;
@@ -39,6 +35,9 @@ interface State {
 }
 type Value = Partial<State>;
 type Key = keyof State;
+
+export const gravatar = (email: string) =>
+  `https://www.gravatar.com/avatar/${md5(email).toString()}.jpg`;
 
 const Login = () => {
   const [isRegistered, setIsRegistered] = useBoolean();
@@ -153,6 +152,7 @@ const Login = () => {
           password: state.password,
           first_name: state.name.split(" ")[0],
           last_name: state.name.split(" ")[1],
+          avatar: gravatar(state.email),
         });
         const response = await fetch(`${backendURL}/auth/register/`, {
           body,

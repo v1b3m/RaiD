@@ -34,7 +34,7 @@ export default function Container({
     >
       <ModalOverlay />
       <ModalContent
-        bg="brand.raisinBlack"
+        bg="brand.raisinBlack.1"
         borderWidth="3px"
         borderColor="brand.jet"
         borderRadius="1.25rem"

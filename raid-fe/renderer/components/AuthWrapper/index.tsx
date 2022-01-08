@@ -10,6 +10,8 @@ export const Auth: FC<AuthPropTypes> = ({ children }) => {
   const auth = UseGetAuth();
   const router = useRouter();
 
+  console.log({ auth, router });
+
   useEffect(() => {
     if (!auth.isLoggedIn && router) {
       router.push("/");
