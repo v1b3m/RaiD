@@ -52,7 +52,7 @@ const CustomInput = ({
           isInvalid={isInvalid}
         />
         {isPassword && (
-          <InputRightAddon bg="brand.spaceCadet">
+          <InputRightAddon bg="brand.spaceCadet" cursor="pointer">
             {passwordFlag && (
               <Box onClick={setPasswordFlag.off}>
                 <MdVisibility size={24} />

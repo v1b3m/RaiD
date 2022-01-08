@@ -39,7 +39,7 @@ export function GlobalFilter({
           placeholder={`${count} records...`}
           fontSize="1.1rem"
         />
-        <InputRightAddon bg="brand.raisinBlack" cursor="pointer">
+        <InputRightAddon bg="brand.raisinBlack.1" cursor="pointer">
           <FaSearch size={20} />
         </InputRightAddon>
       </InputGroup>

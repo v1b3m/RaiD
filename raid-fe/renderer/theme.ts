@@ -10,7 +10,7 @@ const colors = {
     honeyYellow: "#F9B219",
     shamrockGreen: "#349d63",
     maximumBlue: "#37B1D4",
-    raisinBlack: "#1C1C27",
+    raisinBlack: { 1: "#1C1C27", 2: "#2B2B3B" },
     jet: "#33333E",
     spaceCadet: "#28293D",
     hanBlue: "#3568D4",
@@ -40,6 +40,7 @@ const colors = {
     mediumOrchid: "#AC5CD9",
     plumWeb: "#DEA5E8",
     indepedence: "#5C5E72",
+    davysGrey: "#505053",
   },
 };
 

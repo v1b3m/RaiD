@@ -12,7 +12,7 @@ interface Props {
 export default function Layout({ children, headerProps }: Props) {
   return (
     <Flex
-      bg="brand.raisinBlack"
+      bg="brand.raisinBlack.1"
       height="100%"
       minH="100vh"
       textColor="brand.cultured"

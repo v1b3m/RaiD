@@ -7,8 +7,11 @@ type AuthPropTypes = {
 };
 
 export const Auth: FC<AuthPropTypes> = ({ children }) => {
+  console.log("I am in the auth wrapper");
   const auth = UseGetAuth();
   const router = useRouter();
+
+  console.log({ auth, router });
 
   useEffect(() => {
     if (!auth.isLoggedIn && router) {

@@ -99,7 +99,7 @@
                 allowToggle: !0,
                 children: (0, a.jsxs)(u.Qd, {
                   borderBottom: "0",
-                  borderTopColor: "brand.raisinBlack",
+                  borderTopColor: "brand.raisinBlack.1",
                   children: [
                     (0, a.jsxs)(n.k, {
                       h: { base: "5rem", sm: "7rem" },
@@ -189,7 +189,7 @@
         var r = e.children,
           t = e.headerProps;
         return (0, a.jsxs)(n.k, {
-          bg: "brand.raisinBlack",
+          bg: "brand.raisinBlack.1",
           height: "100%",
           minH: "100vh",
           textColor: "brand.cultured",

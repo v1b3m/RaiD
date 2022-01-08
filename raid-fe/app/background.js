@@ -679,7 +679,11 @@
                 }),
                 i
               );
-            })("main", { width: 1440, height: 900 });
+            })("main", {
+              width: 1440,
+              height: 900,
+              webPreferences: { webSecurity: !1 },
+            });
             await e.loadURL("app://./index.html");
           })(),
           n.app.on("window-all-closed", () => {

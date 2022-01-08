@@ -1,12 +1,19 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, BoxProps, Flex, FlexProps } from "@chakra-ui/react";
 import React from "react";
 
 interface SectionProps {
   left: JSX.Element | string;
   right: JSX.Element | string;
+  props?: FlexProps;
+  leftProps?: BoxProps;
 }
 
-export default function Section({ left, right }: SectionProps): JSX.Element {
+export default function Section({
+  left,
+  right,
+  props,
+  leftProps,
+}: SectionProps): JSX.Element {
   return (
     <Flex
       justify="space-between"
@@ -15,8 +22,11 @@ export default function Section({ left, right }: SectionProps): JSX.Element {
       fontSize="0.875rem"
       lineHeight="1.375rem"
       mb="1.75rem"
+      {...props}
     >
-      <Box textColor="brand.battleshipGray">{left}</Box>
+      <Box textColor="brand.battleshipGray" {...leftProps}>
+        {left}
+      </Box>
       <Box textAlign="right">{right}</Box>
     </Flex>
   );

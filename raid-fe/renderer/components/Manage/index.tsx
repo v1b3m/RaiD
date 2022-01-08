@@ -1,4 +1,11 @@
-import { Box, Center, Grid, Spinner, useBoolean } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  cookieStorageManager,
+  Grid,
+  Spinner,
+  useBoolean,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { UseGetSession } from "../../state/session/hooks";
@@ -11,6 +18,7 @@ import Profile from "./Profile";
 import Results from "./Results";
 
 export default function Manage() {
+  console.log("I am in the manage content ci page");
   const [activePage, setActivePage] = useState<IActivePage>("analyze");
   const [isLoading, setIsLoading] = useBoolean();
   const router = useRouter();
@@ -18,6 +26,8 @@ export default function Manage() {
   const query = router.query as { section: string };
   const user = UseGetUser();
   const session = UseGetSession();
+
+  console.log({ user, session });
 
   useEffect(() => {
     const sections: IActivePage[] = ["account", "analyze", "results"];

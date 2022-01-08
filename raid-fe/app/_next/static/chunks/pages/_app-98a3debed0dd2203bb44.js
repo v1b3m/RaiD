@@ -430,7 +430,7 @@
           return be;
         },
         toCSSVar: function () {
-          return Ge;
+          return Xe;
         },
       });
       var n = t(1697);
@@ -1223,7 +1223,7 @@
           ringOffsetColor: P.colors("--chakra-ring-offset-color"),
           ringInset: P.prop("--chakra-ring-inset"),
         },
-        X = {
+        G = {
           margin: P.spaceT("margin"),
           marginTop: P.spaceT("marginTop"),
           marginBlockStart: P.spaceT("marginBlockStart"),
@@ -1251,31 +1251,31 @@
           paddingY: P.space(["paddingTop", "paddingBottom"]),
           paddingBlock: P.space("paddingBlock"),
         };
-      Object.assign(X, {
-        m: X.margin,
-        mt: X.marginTop,
-        mr: X.marginRight,
-        me: X.marginInlineEnd,
-        marginEnd: X.marginInlineEnd,
-        mb: X.marginBottom,
-        ml: X.marginLeft,
-        ms: X.marginInlineStart,
-        marginStart: X.marginInlineStart,
-        mx: X.marginX,
-        my: X.marginY,
-        p: X.padding,
-        pt: X.paddingTop,
-        py: X.paddingY,
-        px: X.paddingX,
-        pb: X.paddingBottom,
-        pl: X.paddingLeft,
-        ps: X.paddingInlineStart,
-        paddingStart: X.paddingInlineStart,
-        pr: X.paddingRight,
-        pe: X.paddingInlineEnd,
-        paddingEnd: X.paddingInlineEnd,
+      Object.assign(G, {
+        m: G.margin,
+        mt: G.marginTop,
+        mr: G.marginRight,
+        me: G.marginInlineEnd,
+        marginEnd: G.marginInlineEnd,
+        mb: G.marginBottom,
+        ml: G.marginLeft,
+        ms: G.marginInlineStart,
+        marginStart: G.marginInlineStart,
+        mx: G.marginX,
+        my: G.marginY,
+        p: G.padding,
+        pt: G.paddingTop,
+        py: G.paddingY,
+        px: G.paddingX,
+        pb: G.paddingBottom,
+        pl: G.paddingLeft,
+        ps: G.paddingInlineStart,
+        paddingStart: G.paddingInlineStart,
+        pr: G.paddingRight,
+        pe: G.paddingInlineEnd,
+        paddingEnd: G.paddingInlineEnd,
       });
-      var G = {
+      var X = {
           textDecorationColor: P.colors("textDecorationColor"),
           textDecoration: !0,
           textDecor: { property: "textDecoration" },
@@ -1431,8 +1431,8 @@
             return e;
           }).apply(this, arguments);
       }
-      var fe = ee()({}, A, T, R, I, M, z, q, D, F, U, V, B, X, K, G, Y, L, Z),
-        pe = Object.assign({}, X, M, I, F, V),
+      var fe = ee()({}, A, T, R, I, M, z, q, D, F, U, V, B, G, K, X, Y, L, Z),
+        pe = Object.assign({}, G, M, I, F, V),
         he = (0, W.Yd)(pe),
         be = [...(0, W.Yd)(fe), ...ue],
         ge = de({}, fe, le),
@@ -1848,8 +1848,8 @@
           return o;
         })(e, ["__cssMap", "__cssVars", "__breakpoints"]);
       }
-      function Xe() {
-        return (Xe =
+      function Ge() {
+        return (Ge =
           Object.assign ||
           function (e) {
             for (var r = 1; r < arguments.length; r++) {
@@ -1860,7 +1860,7 @@
             return e;
           }).apply(this, arguments);
       }
-      function Ge(e) {
+      function Xe(e) {
         var r,
           t = qe(e),
           n = Ve(t),
@@ -1868,7 +1868,7 @@
           { cssMap: a, cssVars: i } = He(n, { cssVarPrefix: o });
         return (
           Object.assign(t, {
-            __cssVars: Xe(
+            __cssVars: Ge(
               {},
               {
                 "--chakra-ring-inset": "var(--chakra-empty,/*!*/ /*!*/)",
@@ -3180,7 +3180,7 @@
               switch (O()) {
                 case 42:
                 case 47:
-                  p(G(z(k(), _()), r, t), u);
+                  p(X(z(k(), _()), r, t), u);
                   break;
                 default:
                   F += "/";
@@ -3210,7 +3210,7 @@
                 default:
                   if (
                     (p(
-                      (B = X(F, r, t, f, h, o, l, C, (j = []), (P = []), b)),
+                      (B = G(F, r, t, f, h, o, l, C, (j = []), (P = []), b)),
                       i
                     ),
                     123 === E)
@@ -3226,7 +3226,7 @@
                             B,
                             B,
                             n &&
-                              p(X(e, B, B, 0, 0, o, l, C, o, (j = []), b), P),
+                              p(G(e, B, B, 0, 0, o, l, C, o, (j = []), b), P),
                             o,
                             P,
                             b,
@@ -3265,7 +3265,7 @@
           }
         return i;
       }
-      function X(e, r, t, n, a, c, l, d, p, h, b) {
+      function G(e, r, t, n, a, c, l, d, p, h, b) {
         for (
           var g = a - 1, m = 0 === a ? c : [""], v = f(m), y = 0, w = 0, S = 0;
           y < n;
@@ -3280,7 +3280,7 @@
               (p[S++] = _);
         return x(e, r, t, 0 === a ? W : d, p, h, b);
       }
-      function G(e, r, t) {
+      function X(e, r, t) {
         return x(e, r, t, L, a(v), u(e, 2, -2), 0);
       }
       function Y(e, r, t, n) {
@@ -3947,7 +3947,7 @@
         );
       }
       function o(e) {
-        return !!e && !!e[X];
+        return !!e && !!e[G];
       }
       function a(e) {
         return (
@@ -3960,7 +3960,7 @@
               Object.hasOwnProperty.call(r, "constructor") && r.constructor;
             return (
               t === Object ||
-              ("function" == typeof t && Function.toString.call(t) === G)
+              ("function" == typeof t && Function.toString.call(t) === X)
             );
           })(e) ||
             Array.isArray(e) ||
@@ -3981,7 +3981,7 @@
               });
       }
       function s(e) {
-        var r = e[X];
+        var r = e[G];
         return r
           ? r.i > 3
             ? r.i - 4
@@ -4021,7 +4021,7 @@
       function b(e) {
         if (Array.isArray(e)) return Array.prototype.slice.call(e);
         var r = Z(e);
-        delete r[X];
+        delete r[G];
         for (var t = Y(r), n = 0; n < t.length; n++) {
           var o = t[n],
             a = r[o];
@@ -4084,7 +4084,7 @@
         return (W = { p: [], l: W, h: e, m: !0, _: 0 });
       }
       function E(e) {
-        var r = e[X];
+        var r = e[G];
         0 === r.i || 1 === r.i ? r.j() : (r.O = !0);
       }
       function C(e, r) {
@@ -4094,9 +4094,9 @@
         return (
           r.h.g || y("ES5").S(r, e, o),
           o
-            ? (t[X].P && (k(r), n(4)),
+            ? (t[G].P && (k(r), n(4)),
               a(e) && ((e = j(r, e)), r.l || A(r, e)),
-              r.u && y("Patches").M(t[X], e, r.u, r.s))
+              r.u && y("Patches").M(t[G], e, r.u, r.s))
             : (e = j(r, t, [])),
           k(r),
           r.u && r.v(r.u, r.s),
@@ -4105,7 +4105,7 @@
       }
       function j(e, r, t) {
         if (v(r)) return r;
-        var n = r[X];
+        var n = r[G];
         if (!n)
           return (
             i(
@@ -4149,7 +4149,7 @@
         void 0 === t && (t = !1), e.h.F && e.m && g(r, t);
       }
       function T(e, r) {
-        var t = e[X];
+        var t = e[G];
         return (t ? h(t) : e)[r];
       }
       function R(e, r) {
@@ -4204,7 +4204,7 @@
           (function e(r) {
             if (!a(r)) return r;
             var t,
-              n = r[X],
+              n = r[G],
               o = s(r);
             if (n) {
               if (!n.P && (n.i < 4 || !y("ES5").K(n))) return n.t;
@@ -4239,11 +4239,11 @@
                     configurable: !0,
                     enumerable: r,
                     get: function () {
-                      var r = this[X];
+                      var r = this[G];
                       return Q.get(r, e);
                     },
                     set: function (r) {
-                      var t = this[X];
+                      var t = this[G];
                       Q.set(t, e, r);
                     },
                   }),
@@ -4252,7 +4252,7 @@
         }
         function r(e) {
           for (var r = e.length - 1; r >= 0; r--) {
-            var o = e[r][X];
+            var o = e[r][G];
             if (!o.P)
               switch (o.i) {
                 case 5:
@@ -4266,15 +4266,15 @@
         function t(e) {
           for (var r = e.t, t = e.k, n = Y(t), o = n.length - 1; o >= 0; o--) {
             var a = n[o];
-            if (a !== X) {
+            if (a !== G) {
               var i = r[a];
               if (void 0 === i && !c(r, a)) return !0;
               var s = t[a],
-                l = s && s[X];
+                l = s && s[G];
               if (l ? l.t !== i : !d(s, i)) return !0;
             }
           }
-          var u = !!r[X];
+          var u = !!r[G];
           return n.length !== Y(r).length + (u ? 0 : 1);
         }
         function n(e) {
@@ -4294,7 +4294,7 @@
                   return n;
                 }
                 var a = Z(t);
-                delete a[X];
+                delete a[G];
                 for (var i = Y(a), s = 0; s < i.length; s++) {
                   var c = i[s];
                   a[c] = e(c, r || !!a[c].enumerable);
@@ -4314,15 +4314,15 @@
                 O: !1,
                 C: !1,
               };
-            return Object.defineProperty(o, X, { value: a, writable: !0 }), o;
+            return Object.defineProperty(o, G, { value: a, writable: !0 }), o;
           },
           S: function (e, t, a) {
             a
-              ? o(t) && t[X].A === e && r(e.p)
+              ? o(t) && t[G].A === e && r(e.p)
               : (e.u &&
                   (function e(r) {
                     if (r && "object" == typeof r) {
-                      var t = r[X];
+                      var t = r[G];
                       if (t) {
                         var o = t.t,
                           a = t.k,
@@ -4330,7 +4330,7 @@
                           l = t.i;
                         if (4 === l)
                           i(a, function (r) {
-                            r !== X &&
+                            r !== G &&
                               (void 0 !== o[r] || c(o, r)
                                 ? s[r] || e(a[r])
                                 : ((s[r] = !0), B(t)));
@@ -4387,8 +4387,8 @@
           ? Symbol.for("immer-nothing")
           : (((L = {})["immer-nothing"] = !0), L),
         q = N ? Symbol.for("immer-draftable") : "__$immer_draftable",
-        X = N ? Symbol.for("immer-state") : "__$immer_state",
-        G =
+        G = N ? Symbol.for("immer-state") : "__$immer_state",
+        X =
           ("undefined" != typeof Symbol && Symbol.iterator,
           "" + Object.prototype.constructor),
         Y =
@@ -4415,7 +4415,7 @@
         K = {},
         Q = {
           get: function (e, r) {
-            if (r === X) return e;
+            if (r === G) return e;
             var t = h(e);
             if (!c(t, r))
               return (function (e, r, t) {
@@ -4447,7 +4447,7 @@
             if (null == n ? void 0 : n.set) return n.set.call(e.k, t), !0;
             if (!e.P) {
               var o = T(h(e), r),
-                a = null == o ? void 0 : o[X];
+                a = null == o ? void 0 : o[G];
               if (a && a.t === t) return (e.o[r] = t), (e.D[r] = !1), !0;
               if (d(t, o) && (void 0 !== t || c(e.t, r))) return !0;
               z(e), B(e);
@@ -4595,10 +4595,10 @@
               a(e) || n(8), o(e) && (e = F(e));
               var r = _(this),
                 t = I(this, e, void 0);
-              return (t[X].C = !0), O(r), t;
+              return (t[G].C = !0), O(r), t;
             }),
             (r.finishDraft = function (e, r) {
-              var t = (e && e[X]).A;
+              var t = (e && e[G]).A;
               return S(t, r), C(void 0, t);
             }),
             (r.setAutoFreeze = function (e) {
@@ -5133,8 +5133,8 @@
         U = Math.max,
         V = Date.now,
         q = pe(p, "Map"),
-        X = pe(Object, "create"),
-        G = (function () {
+        G = pe(Object, "create"),
+        X = (function () {
           function e() {}
           return function (r) {
             if (!_e(r)) return {};
@@ -5219,7 +5219,7 @@
           : (e[r] = t);
       }
       (Y.prototype.clear = function () {
-        (this.__data__ = X ? X(null) : {}), (this.size = 0);
+        (this.__data__ = G ? G(null) : {}), (this.size = 0);
       }),
         (Y.prototype.delete = function (e) {
           var r = this.has(e) && delete this.__data__[e];
@@ -5227,7 +5227,7 @@
         }),
         (Y.prototype.get = function (e) {
           var r = this.__data__;
-          if (X) {
+          if (G) {
             var t = r[e];
             return t === n ? void 0 : t;
           }
@@ -5235,13 +5235,13 @@
         }),
         (Y.prototype.has = function (e) {
           var r = this.__data__;
-          return X ? void 0 !== r[e] : j.call(r, e);
+          return G ? void 0 !== r[e] : j.call(r, e);
         }),
         (Y.prototype.set = function (e, r) {
           var t = this.__data__;
           return (
             (this.size += this.has(e) ? 0 : 1),
-            (t[e] = X && void 0 === r ? n : r),
+            (t[e] = G && void 0 === r ? n : r),
             this
           );
         }),
@@ -5470,7 +5470,7 @@
                                 return "function" != typeof e.constructor ||
                                   be(e)
                                   ? {}
-                                  : G(D(e));
+                                  : X(D(e));
                               })(l)))
                         : (f = !1);
                   }
@@ -5890,7 +5890,7 @@
       function q(e) {
         return 1 === e.length ? "0" + e : String(e);
       }
-      function X(e, r, t) {
+      function G(e, r, t) {
         (e = H(e, 255)), (r = H(r, 255)), (t = H(t, 255));
         var n = Math.max(e, r, t),
           o = Math.min(e, r, t),
@@ -5914,7 +5914,7 @@
         }
         return { h: a, s: i, l: s };
       }
-      function G(e, r, t) {
+      function X(e, r, t) {
         return (
           t < 0 && (t += 1),
           t > 1 && (t -= 1),
@@ -6229,9 +6229,9 @@
                   else {
                     var i = t < 0.5 ? t * (1 + r) : t + r - t * r,
                       s = 2 * t - i;
-                    (n = G(s, i, e + 1 / 3)),
-                      (o = G(s, i, e)),
-                      (a = G(s, i, e - 1 / 3));
+                    (n = X(s, i, e + 1 / 3)),
+                      (o = X(s, i, e)),
+                      (a = X(s, i, e - 1 / 3));
                   }
                   return { r: 255 * n, g: 255 * o, b: 255 * a };
                 })(e.h, i, c)),
@@ -6364,11 +6364,11 @@
               : "hsva(" + r + ", " + t + "%, " + n + "%, " + this.roundA + ")";
           }),
           (e.prototype.toHsl = function () {
-            var e = X(this.r, this.g, this.b);
+            var e = G(this.r, this.g, this.b);
             return { h: 360 * e.h, s: e.s, l: e.l, a: this.a };
           }),
           (e.prototype.toHslString = function () {
-            var e = X(this.r, this.g, this.b),
+            var e = G(this.r, this.g, this.b),
               r = Math.round(360 * e.h),
               t = Math.round(100 * e.s),
               n = Math.round(100 * e.l);
@@ -7380,17 +7380,17 @@
             })(e, r)
         );
       }
-      function Xe(e, r) {
+      function Ge(e, r) {
         var t = qe(e, null == r ? void 0 : r.prefix);
         return {
           variable: t,
-          reference: Ve(t, Ge(null == r ? void 0 : r.fallback)),
+          reference: Ve(t, Xe(null == r ? void 0 : r.fallback)),
         };
       }
-      function Ge(e) {
+      function Xe(e) {
         return "string" === typeof e ? e : null == e ? void 0 : e.reference;
       }
-      var Ye = Xe("close-button-size"),
+      var Ye = Ge("close-button-size"),
         Ze = {
           baseStyle: (e) => {
             var r = ye("blackAlpha.100", "whiteAlpha.100")(e),
@@ -7829,8 +7829,8 @@
       function qr(e) {
         return (0, pe.Kn)(e) && e.reference ? e.reference : String(e);
       }
-      var Xr,
-        Gr,
+      var Gr,
+        Xr,
         Yr = function (e) {
           for (
             var r = arguments.length, t = new Array(r > 1 ? r - 1 : 0), n = 1;
@@ -7986,13 +7986,13 @@
           }).apply(this, arguments);
       }
       var { variants: ot, defaultProps: at } = Or,
-        it = Xe("number-input-stepper-width"),
-        st = Xe("number-input-input-padding"),
+        it = Ge("number-input-stepper-width"),
+        st = Ge("number-input-input-padding"),
         ct = rt(it).add("0.5rem").toString(),
         lt = { [it.variable]: "24px", [st.variable]: ct },
         ut =
-          null != (Xr = null == (Gr = Or.baseStyle) ? void 0 : Gr.field)
-            ? Xr
+          null != (Gr = null == (Xr = Or.baseStyle) ? void 0 : Xr.field)
+            ? Gr
             : {},
         dt = { width: [it.reference] },
         ft = (e) => ({
@@ -8079,9 +8079,9 @@
           },
           defaultProps: Or.defaultProps,
         },
-        yt = Xe("popper-bg"),
-        xt = Xe("popper-arrow-bg"),
-        wt = Xe("popper-arrow-shadow-color"),
+        yt = Ge("popper-bg"),
+        xt = Ge("popper-arrow-bg"),
+        wt = Ge("popper-arrow-shadow-color"),
         St = { zIndex: 10 },
         kt = (e) => {
           var r = ye("white", "gray.700")(e),
@@ -8316,13 +8316,13 @@
             })
           );
         },
-        Xt = (e) => ({
+        Gt = (e) => ({
           overflow: "hidden",
           borderRadius: "sm",
           bg: ye("gray.200", "whiteAlpha.200")(e),
           _disabled: { bg: ye("gray.300", "whiteAlpha.300")(e) },
         }),
-        Gt = (e) =>
+        Xt = (e) =>
           Vt(
             {
               display: "flex",
@@ -8396,13 +8396,13 @@
           sizes: Zt,
           baseStyle: (e) => ({
             container: qt(e),
-            track: Xt(e),
-            thumb: Gt(e),
+            track: Gt(e),
+            thumb: Xt(e),
             filledTrack: Yt(e),
           }),
           defaultProps: { size: "md", colorScheme: "blue" },
         },
-        Qt = Xe("spinner-size"),
+        Qt = Ge("spinner-size"),
         Jt = {
           baseStyle: { width: [Qt.reference], height: [Qt.reference] },
           sizes: {
@@ -8433,11 +8433,11 @@
           },
           defaultProps: { size: "md" },
         },
-        tn = Xe("switch-track-width"),
-        nn = Xe("switch-track-height"),
-        on = Xe("switch-track-diff"),
+        tn = Ge("switch-track-width"),
+        nn = Ge("switch-track-height"),
+        on = Ge("switch-track-diff"),
         an = rt.subtract(tn, nn),
-        sn = Xe("switch-thumb-x"),
+        sn = Ge("switch-thumb-x"),
         cn = (e) => {
           var { colorScheme: r } = e;
           return {
@@ -8851,8 +8851,8 @@
           variants: Rn,
           defaultProps: { size: "md", variant: "outline" },
         },
-        zn = Xe("tooltip-bg"),
-        In = Xe("popper-arrow-bg"),
+        zn = Ge("tooltip-bg"),
+        In = Ge("popper-arrow-bg"),
         Fn = {
           baseStyle: (e) => {
             var r = ye("gray.700", "gray.300")(e);
@@ -8981,7 +8981,7 @@
             return e;
           }).apply(this, arguments);
       }
-      var Xn = qn(
+      var Gn = qn(
           { direction: "ltr" },
           Vn(
             {
@@ -9319,7 +9319,7 @@
             },
           }
         ),
-        Gn = (e) => {
+        Xn = (e) => {
           var {
               children: r,
               colorModeManager: t,
@@ -9346,7 +9346,7 @@
             )
           );
         };
-      Gn.defaultProps = { theme: Xn };
+      Xn.defaultProps = { theme: Gn };
       var Yn = t(9086);
       function Zn(e) {
         return (Zn =
@@ -10416,7 +10416,7 @@
             return a.createElement("div", { className: "Toastify__spinner" });
           },
         },
-        Xo = function (e) {
+        Go = function (e) {
           var r,
             t,
             n = No(e),
@@ -10543,7 +10543,7 @@
             )
           );
         },
-        Go = Bo({
+        Xo = Bo({
           enter: "Toastify--animate Toastify__bounce-enter",
           exit: "Toastify--animate Toastify__bounce-exit",
           appendPosition: !0,
@@ -10583,7 +10583,7 @@
                   var r = e.content,
                     t = e.props;
                   return (0,
-                  a.createElement)(Xo, Object.assign({}, t, { isIn: o(t.toastId), key: "toast-" + t.key, closeButton: !0 === t.closeButton ? Ho : t.closeButton }), r);
+                  a.createElement)(Go, Object.assign({}, t, { isIn: o(t.toastId), key: "toast-" + t.key, closeButton: !0 === t.closeButton ? Ho : t.closeButton }), r);
                 })
               );
             })
@@ -10591,7 +10591,7 @@
         };
       Yo.defaultProps = {
         position: To.TOP_RIGHT,
-        transition: Go,
+        transition: Xo,
         rtl: !1,
         autoClose: 5e3,
         hideProgressBar: !1,
@@ -11294,7 +11294,7 @@
             });
           },
         }),
-        Xa = (function (e, r, t) {
+        Ga = (function (e, r, t) {
           var n = t || !1,
             o = (0, Ra.MT)(Ma, Da, r && r.enhancer ? r.enhancer : void 0),
             a = function (e) {
@@ -11340,7 +11340,7 @@
             });
           return (r && r.manualPersist) || s.persist(), s;
         })(qa),
-        Ga =
+        Xa =
           (t(4420),
           [
             "borders",
@@ -11365,7 +11365,7 @@
       function Ya(e) {
         return (
           !!(0, pe.Kn)(e) &&
-          Ga.every((r) => Object.prototype.hasOwnProperty.call(e, r))
+          Xa.every((r) => Object.prototype.hasOwnProperty.call(e, r))
         );
       }
       var Za = t(5282),
@@ -11392,7 +11392,7 @@
         var n = [...r],
           o = r[r.length - 1];
         return (
-          Ya(o) && n.length > 1 ? (n = n.slice(0, n.length - 1)) : (o = Xn),
+          Ya(o) && n.length > 1 ? (n = n.slice(0, n.length - 1)) : (o = Gn),
           (0, Hn.zG)(...n.map((e) => (r) => (0, pe.mf)(e) ? e(r) : Qa(r, e)))(o)
         );
       })({
@@ -11406,7 +11406,7 @@
             honeyYellow: "#F9B219",
             shamrockGreen: "#349d63",
             maximumBlue: "#37B1D4",
-            raisinBlack: "#1C1C27",
+            raisinBlack: { 1: "#1C1C27", 2: "#2B2B3B" },
             jet: "#33333E",
             spaceCadet: "#28293D",
             hanBlue: "#3568D4",
@@ -11436,6 +11436,7 @@
             mediumOrchid: "#AC5CD9",
             plumWeb: "#DEA5E8",
             indepedence: "#5C5E72",
+            davysGrey: "#505053",
           },
         },
       });
@@ -11473,13 +11474,13 @@
       var ni = function (e) {
         var r = e.Component,
           t = e.pageProps;
-        return (0, la.jsx)(Gn, {
+        return (0, la.jsx)(Xn, {
           theme: ei,
           children: (0, la.jsx)(Yn.zt, {
             store: qa,
             children: (0, la.jsxs)(oo, {
               loading: null,
-              persistor: Xa,
+              persistor: Ga,
               children: [(0, la.jsx)(r, ti({}, t)), (0, la.jsx)(ua, {})],
             }),
           }),
