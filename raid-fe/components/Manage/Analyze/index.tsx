@@ -17,10 +17,11 @@ import {
   useReducer,
 } from "react";
 import { v4 as uuid4 } from "uuid";
-import { cloudName, uploadPreset, backendURL } from "../../../config/fe";
-import { useSession } from "../../../context/SessionContext";
+import { backendURL, cloudName, uploadPreset } from "../../../config/fe";
 import { HttpError } from "../../../error";
 import { UseAddPopup } from "../../../state/application/hooks";
+import { UseLogout } from "../../../state/auth/hooks";
+import { UseGetSession } from "../../../state/session/hooks";
 import { IActivePage } from "../../../types/manage";
 import { PopupType } from "../../../types/PopUp";
 import { toBase64, upload } from "../../../utils/cloudinary";
@@ -53,8 +54,9 @@ interface UploadResponse {
 }
 
 const Analyze: FC<Props> = ({ setActivePage }) => {
-  const { data: session } = useSession();
   const addPopup = UseAddPopup();
+  const logout = UseLogout();
+  const { data: session } = UseGetSession();
 
   const initialState = {
     files: [],
@@ -102,6 +104,17 @@ const Analyze: FC<Props> = ({ setActivePage }) => {
         method: "POST",
         headers,
       });
+      if (response.status === 401) {
+        addPopup({
+          content: {
+            summary: "Please login again to continue",
+            title: "Session expired",
+            type: PopupType.error,
+          },
+        });
+        return logout();
+      }
+      console.log({ response });
       if ([400, 500].includes(response.status)) {
         throw new HttpError(await response.text(), response.status);
       }

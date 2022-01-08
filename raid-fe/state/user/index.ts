@@ -1,31 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import User from "../../types/User";
 
 interface UserState {
-  profile: Record<string, any> | UserProfile;
+  profile?: User;
 }
 
-export interface UserProfile {
-  id: string;
-  name: string;
-  email: string;
-  avatar: string;
-}
-
-const initialState: UserState = {
-  profile: {},
-};
+const initialState: UserState = {};
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setProfile: (state, action: PayloadAction<UserProfile>) => {
+    setProfile: (state, action: PayloadAction<User>) => {
       state.profile = action.payload;
     },
     removeProfile: (state) => {
-      state.profile = {};
+      state.profile = undefined;
     },
-    updateProfile: (state, action: PayloadAction<UserProfile>) => {
+    updateProfile: (state, action: PayloadAction<User>) => {
       state.profile = { ...state.profile, ...action.payload };
     },
   },

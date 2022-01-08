@@ -1,9 +1,10 @@
 import { Box, Text } from "@chakra-ui/react";
 import { FC } from "react";
+import { useDispatch } from "react-redux";
 import { UseAddPopup } from "../../../state/application/hooks";
+import { UseLogout } from "../../../state/auth/hooks";
 import { PopupType } from "../../../types/PopUp";
 import User from "../../../types/User";
-import { signOut } from "../../../utils/session";
 import CustomButton from "../../CustomButton";
 import TopCard from "./TopCard";
 
@@ -14,6 +15,7 @@ interface Props {
 
 const Profile: FC<Props> = ({ user, token }) => {
   const addPopup = UseAddPopup();
+  const logout = UseLogout();
   const handleSignOut = () => {
     addPopup({
       content: {
@@ -22,7 +24,7 @@ const Profile: FC<Props> = ({ user, token }) => {
         summary: "Come back soon 😢",
       },
     });
-    signOut();
+    logout();
   };
   return (
     <Box height="100%" p={{ base: "1.2rem", sm: "2rem" }}>

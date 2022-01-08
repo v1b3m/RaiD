@@ -6,19 +6,23 @@ import {
   Image,
   Text,
   useBoolean,
-  useCheckbox,
 } from "@chakra-ui/react";
+import md5 from "crypto-js/md5";
+import { ChangeEvent, useEffect, useReducer } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import { MdEmail, MdLock } from "react-icons/md";
+import { backendURL } from "../../../config/fe";
+import { HttpError } from "../../../error";
+import { RegisterResponse } from "../../../pages/api/register";
+import { SignInResponse } from "../../../pages/api/sign-in";
+import { UseAddPopup } from "../../../state/application/hooks";
+import { UseLogin } from "../../../state/auth/hooks";
+import { UseAddSession } from "../../../state/session/hooks";
+import { UseAddUser } from "../../../state/user/hooks";
+import { PopupType } from "../../../types/PopUp";
 import CustomButton from "../../CustomButton";
 import CustomLink from "../../Text/Link";
 import CustomInput from "./CustomInput";
-import { FaUserCircle } from "react-icons/fa";
-import { ChangeEvent, useEffect, useReducer } from "react";
-import { RegisterResponse } from "../../../pages/api/register";
-import { HttpError } from "../../../error";
-import Cookies from "cookies";
-import { UseAddPopup } from "../../../state/application/hooks";
-import { PopupType } from "../../../types/PopUp";
 
 interface State {
   email: string;
@@ -31,6 +35,9 @@ interface State {
 }
 type Value = Partial<State>;
 type Key = keyof State;
+
+export const gravatar = (email: string) =>
+  `https://www.gravatar.com/avatar/${md5(email).toString()}.jpg`;
 
 const Login = () => {
   const [isRegistered, setIsRegistered] = useBoolean();
@@ -85,6 +92,10 @@ const Login = () => {
     dispatch({ isValidFullName: !state.name || isValidFullName(state.name) });
   }, [state.name]);
 
+  const setSession = UseAddSession();
+  const setUser = UseAddUser();
+  const logIn = UseLogin();
+
   const onSubmit = async () => {
     setIsLoading.on();
     dispatch({ error: "" });
@@ -103,15 +114,27 @@ const Login = () => {
           email: state.email,
           password: state.password,
         });
-        const response = await fetch("/api/sign-in", {
+        const response = await fetch(`${backendURL}/auth/login/`, {
           body,
           method: "POST",
           headers,
         });
+        const { status } = response;
+        if (status === 200) {
+          const json = (await response.json()) as SignInResponse;
+          const { access, user } = json;
+          setUser(user);
+          setSession({
+            status: "authenticated",
+            data: {
+              token: access,
+            },
+          });
+          logIn();
+        }
         if ([400, 500].includes(response.status)) {
           throw new HttpError(await response.text(), response.status);
         }
-        (await response.json()) as RegisterResponse;
         addPopup({
           content: {
             type: PopupType.success,
@@ -127,10 +150,11 @@ const Login = () => {
         const body = JSON.stringify({
           email: state.email,
           password: state.password,
-          firstName: state.name.split(" ")[0],
-          lastName: state.name.split(" ")[1],
+          first_name: state.name.split(" ")[0],
+          last_name: state.name.split(" ")[1],
+          avatar: gravatar(state.email),
         });
-        const response = await fetch("/api/register", {
+        const response = await fetch(`${backendURL}/auth/register/`, {
           body,
           method: "POST",
           headers,
@@ -138,7 +162,15 @@ const Login = () => {
         if ([400, 500].includes(response.status)) {
           throw new HttpError(await response.text(), response.status);
         }
-        (await response.json()) as RegisterResponse;
+        const json = (await response.json()) as RegisterResponse;
+        setUser(json.user);
+        setSession({
+          status: "authenticated",
+          data: {
+            token: json.access,
+          },
+        });
+        logIn();
         addPopup({
           content: {
             type: PopupType.success,

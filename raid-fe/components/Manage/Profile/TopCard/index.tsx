@@ -7,6 +7,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import User from "../../../../types/User";
+import { gravatar } from "../../../auth/Forms/Login";
 import Edit from "../Edit";
 import Section from "../Section";
 
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export default function TopCard({ user, token }: Props) {
-  const { first_name, last_name, id, email } = user;
+  const { first_name, last_name, email, avatar } = user;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -38,7 +39,7 @@ export default function TopCard({ user, token }: Props) {
         <Avatar
           size="2xl"
           name="Segun Adebayo"
-          src="https://bit.ly/sage-adebayo"
+          src={avatar || gravatar(email)}
           mb="2rem"
         >
           <AvatarBadge boxSize="1.25em" bg="green.500" />

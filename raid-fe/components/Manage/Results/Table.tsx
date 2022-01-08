@@ -28,6 +28,7 @@ const CustomTable = ({
   fetchData,
   pageCount: controlledPageCount,
   loading,
+  setActiveResult,
 }: {
   columns: any[];
   data: any[];
@@ -40,6 +41,7 @@ const CustomTable = ({
   }) => void;
   loading: boolean;
   pageCount: number;
+  setActiveResult: Dispatch<SetStateAction<number>>;
 }) => {
   const filterTypes = useMemo(
     () => ({
@@ -123,10 +125,17 @@ const CustomTable = ({
           })}
         </Thead>
         <Tbody>
-          {rows.map((row) => {
+          {rows.map((row, idx) => {
             prepareRow(row);
             return (
-              <Tr key={row.getRowProps().key}>
+              <Tr
+                key={row.getRowProps().key}
+                cursor="pointer"
+                _hover={{
+                  bg: idx % 2 === 0 ? "brand.davysGrey" : "brand.raisinBlack.2",
+                }}
+                onClick={() => setActiveResult(row.original.id)}
+              >
                 {getCells(row.cells).map((cell) => (
                   <Td key={cell.getCellProps().key}>{cell.render("Cell")}</Td>
                 ))}

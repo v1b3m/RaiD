@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CreatePopup } from "../../types/PopUp";
-import { addPopup, removePopup } from "../application";
+import { addPopup, removePopup } from ".";
 import { RootState } from "../index";
 
 export type AddPopup = (props: CreatePopup) => void;
