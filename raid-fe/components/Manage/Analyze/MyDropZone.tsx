@@ -1,6 +1,5 @@
 import { Box, Center } from "@chakra-ui/react";
-import _ from "lodash";
-import React, { Dispatch, FC, SetStateAction, useCallback } from "react";
+import React, { FC, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
 interface Props {
@@ -11,7 +10,10 @@ const MyDropZone: FC<Props> = ({ setFiles }) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(acceptedFiles);
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: "image/jpeg, image/png",
+  });
 
   return (
     <Box
@@ -25,9 +27,11 @@ const MyDropZone: FC<Props> = ({ setFiles }) => {
       <Center border="1px" height="100%" borderStyle="dashed">
         <input {...getInputProps()} />
         {isDragActive ? (
-          <p>Drop the files here ...</p>
+          <p>Drop the radiographs here ...</p>
         ) : (
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <p>
+            Drag 'n' drop some radiographs here, or click to select radiographs
+          </p>
         )}
       </Center>
     </Box>

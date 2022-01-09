@@ -1,13 +1,15 @@
+import { Text } from "@chakra-ui/react";
 import { ChangeEvent, LegacyRef, useRef, useState } from "react";
+import { cloudName, uploadPreset } from "../../../../config/fe";
 import { UseErrorMessages } from "../../../../hooks/UseErrorMessages";
 import { updateUserDetails } from "../../../../requests/user";
 import { UseUpdateUser } from "../../../../state/user/hooks";
 import User from "../../../../types/User";
+import { upload } from "../../../../utils/cloudinary";
 import { clean } from "../../../../utils/object";
 import CustomInput from "../../../auth/Forms/CustomInput";
 import MyDropZone from "../../Analyze/MyDropZone";
 import Container from "./Container";
-import { Text } from "@chakra-ui/react";
 
 interface Props {
   isOpen: boolean;
@@ -34,9 +36,15 @@ export default function Edit({ isOpen, onClose, user, token }: Props) {
         return formRef.current?.reportValidity();
       }
       setIsLoading(true);
-      const cleaned = clean(userInfo as unknown as Record<string, unknown>);
+      let avatar: string;
+      if (files.length > 0) {
+        avatar = (await upload(files, cloudName, uploadPreset))[0];
+      }
+      const cleaned = clean({ ...userInfo, avatar } as unknown as Record<
+        string,
+        unknown
+      >);
       const { data } = await updateUserDetails(userInfo.id, token, cleaned);
-      updateUserData(data);
       onClose();
     } catch (error) {
       handleErrorMessages(error as Error);
