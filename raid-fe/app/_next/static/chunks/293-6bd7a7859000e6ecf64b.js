@@ -917,7 +917,7 @@
         i = "debug",
         a = "v1b3m",
         s = "dvbo6bvu",
-        o = (new (t.n(n)())().secretSync(), "http://35.202.140.255");
+        o = (new (t.n(n)())().secretSync(), "https://api.rhonah.com");
     },
     535: function (e, r, t) {
       "use strict";

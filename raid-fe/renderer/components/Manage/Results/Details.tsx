@@ -20,6 +20,7 @@ import { UseLogout } from "../../../state/auth/hooks";
 import { UseGetSession } from "../../../state/session/hooks";
 import { PopupType } from "../../../types/PopUp";
 import { scaleCloudinaryImage } from "../../../utils/cloudinary";
+import { numberToPercentage } from "../../../utils/number";
 import Section from "../Profile/Section";
 
 interface Props {
@@ -134,31 +135,25 @@ const Details = ({ id, setActiveResult }: Props) => {
             right={dayjs(detail.created_at).format("ddd Do MMM YYYY")}
             leftProps={leftProps}
           />
-          <Text fontSize="2xl">Results</Text>
+          <Text fontSize="2xl">Abnormalities detected</Text>
           {detail.results.map((result, idx) => (
             <Box maxW="20rem" mb="1rem">
               <Section
-                left="Name"
+                left="Type"
                 right={result.name}
                 props={{ mb: "0.5rem" }}
                 leftProps={leftProps}
               />
               <Section
-                left="Class"
-                right={`${result.class}`}
-                props={{ mb: "0.5rem" }}
-                leftProps={leftProps}
-              />
-              <Section
                 left="Confidence"
-                right={`${result.confidence}`}
+                right={`${numberToPercentage(result.confidence)}`}
                 props={{ mb: "0.5rem" }}
                 leftProps={leftProps}
               />
               <Divider />
             </Box>
           ))}
-          <Text fontSize="2xl">Analyzed</Text>
+          <Text fontSize="2xl">Analyzed radiograph(s)</Text>
           <Grid
             templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
             gap="8px"
@@ -178,7 +173,7 @@ const Details = ({ id, setActiveResult }: Props) => {
               />
             ))}
           </Grid>
-          <Text fontSize="2xl">Original Images</Text>
+          <Text fontSize="2xl">Original Radiograph(s)</Text>
           <Grid
             templateColumns="repeat(auto-fit, minmax(250px, 1fr))"
             gap="8px"

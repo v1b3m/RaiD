@@ -12,13 +12,13 @@
       var n = t(8566),
         a = t(2416),
         i = t(3928),
-        s = t(7830),
-        o = t(5774),
+        o = t(7830),
+        s = t(5774),
         c = t(1532),
         u = t(6677),
         l = t(7378),
-        d = t(763),
-        p = t(4128),
+        p = t(763),
+        d = t(4128),
         f = t(5612),
         m = t(6952),
         h = t(9268),
@@ -49,23 +49,23 @@
         T = (function () {
           var e = (0, m.Z)(
             b().mark(function e(r, t, n) {
-              var a, i, s, o, c, u, l, d;
+              var a, i, o, s, c, u, l, p;
               return b().wrap(function (e) {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
                       (a = []),
                         (i = new FormData()),
-                        (s = Object.keys(r)),
-                        (o = 0),
-                        (c = s);
+                        (o = Object.keys(r)),
+                        (s = 0),
+                        (c = o);
                     case 4:
-                      if (!(o < c.length)) {
+                      if (!(s < c.length)) {
                         e.next = 19;
                         break;
                       }
                       return (
-                        (u = c[o]),
+                        (u = c[s]),
                         i.append("file", r[Number(u)]),
                         i.append("upload_preset", n),
                         i.append("folder", "raid-ai"),
@@ -81,9 +81,9 @@
                     case 11:
                       return (l = e.sent), (e.next = 14), l.json();
                     case 14:
-                      (d = e.sent), a.push(d.secure_url);
+                      (p = e.sent), a.push(p.secure_url);
                     case 16:
-                      o++, (e.next = 4);
+                      s++, (e.next = 4);
                       break;
                     case 19:
                       return e.abrupt("return", a);
@@ -98,7 +98,7 @@
             return e.apply(this, arguments);
           };
         })(),
-        A = (function () {
+        I = (function () {
           var e = (0, m.Z)(
             b().mark(function e(r) {
               return b().wrap(function (e) {
@@ -129,8 +129,8 @@
             return e.apply(this, arguments);
           };
         })(),
-        L = t(825),
-        I = t(9707),
+        A = t(825),
+        L = t(9707),
         R = t(4246);
       function F(e, r) {
         var t = Object.keys(e);
@@ -168,12 +168,12 @@
           t = (0, l.useCallback)(function (e) {
             r(e);
           }, []),
-          n = (0, I.uI)({ onDrop: t }),
+          n = (0, L.uI)({ onDrop: t }),
           a = n.getRootProps,
           i = n.getInputProps,
           c = n.isDragActive;
         return (0, R.jsx)(
-          s.xu,
+          o.xu,
           M(
             M({}, a()),
             {},
@@ -183,7 +183,7 @@
               width: "100%",
               bg: "brand.jet",
               p: "1rem",
-              children: (0, R.jsxs)(o.M, {
+              children: (0, R.jsxs)(s.M, {
                 border: "1px",
                 height: "100%",
                 borderStyle: "dashed",
@@ -252,8 +252,8 @@
           var r = e.setActivePage,
             t = (0, z.LI)(),
             n = (0, E.UJ)(),
-            a = (0, d.VO)().data,
-            o = {
+            a = (0, p.VO)().data,
+            s = {
               files: [],
               base64: [],
               isLoading: !1,
@@ -264,9 +264,9 @@
             },
             c = (0, l.useReducer)(function (e, r) {
               return W(W({}, e), r);
-            }, o),
+            }, s),
             u = c[0],
-            p = c[1],
+            d = c[1],
             f = (0, j.q)(),
             g = f.isOpen,
             w = f.onOpen,
@@ -274,15 +274,15 @@
             Z = (function () {
               var e = (0, m.Z)(
                 b().mark(function e() {
-                  var i, s, o, c, l;
+                  var i, o, s, c, l;
                   return b().wrap(
                     function (e) {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
                             if (
-                              (p({ isLoading: !0 }),
-                              p({ error: "" }),
+                              (d({ isLoading: !0 }),
+                              d({ error: "" }),
                               (e.prev = 2),
                               u.files.length)
                             ) {
@@ -301,22 +301,22 @@
                           case 9:
                             return (
                               (i = e.sent),
-                              (s = {
+                              (o = {
                                 "Content-Type": "application/json",
                                 Authorization: "Bearer ".concat(
                                   null === a || void 0 === a ? void 0 : a.token
                                 ),
                               }),
-                              (o = JSON.stringify({
+                              (s = JSON.stringify({
                                 description: u.description,
                                 images: i,
                                 uuid: u.id,
                               })),
                               (e.next = 14),
                               fetch("".concat(S.yp, "/uploads/"), {
-                                body: o,
+                                body: s,
                                 method: "POST",
-                                headers: s,
+                                headers: o,
                               })
                             );
                           case 14:
@@ -361,7 +361,7 @@
                                 type: _.k.success,
                               },
                             }),
-                              p({ isLoading: !1 }),
+                              d({ isLoading: !1 }),
                               r("results"),
                               (e.next = 39);
                             break;
@@ -382,7 +382,7 @@
                               });
                           case 39:
                             return (
-                              (e.prev = 39), p({ isLoading: !1 }), e.finish(39)
+                              (e.prev = 39), d({ isLoading: !1 }), e.finish(39)
                             );
                           case 42:
                           case "end":
@@ -413,12 +413,12 @@
                               (e.next = 2),
                               Promise.all(
                                 u.files.map(function (e) {
-                                  return A(e);
+                                  return I(e);
                                 })
                               )
                             );
                           case 2:
-                            (r = e.sent), p({ base64: r });
+                            (r = e.sent), d({ base64: r });
                           case 4:
                           case "end":
                             return e.stop();
@@ -433,8 +433,8 @@
             },
             [u.files]
           );
-          var I;
-          return (0, R.jsxs)(s.xu, {
+          var L;
+          return (0, R.jsxs)(o.xu, {
             fontSize: { lg: "1.5rem" },
             px: { xl: "2.5rem" },
             children: [
@@ -467,9 +467,9 @@
                   }),
                   (0, R.jsx)(y.g, {
                     onChange:
-                      ((I = "description"),
+                      ((L = "description"),
                       function (e) {
-                        p((0, x.Z)({}, I, e.target.value));
+                        d((0, x.Z)({}, L, e.target.value));
                       }),
                     placeholder:
                       "Enter any information you want to associate with the radiograph(s)",
@@ -490,7 +490,7 @@
                   }),
                   (0, R.jsx)(N, {
                     setFiles: function (e) {
-                      return p({
+                      return d({
                         files: k().uniqBy(
                           [].concat((0, h.Z)(e), (0, h.Z)(u.files)),
                           "name"
@@ -526,7 +526,7 @@
                             h: "300px",
                             _hover: { opacity: 0.5 },
                             onClick: function () {
-                              return p({ activeImage: e }), void w();
+                              return d({ activeImage: e }), void w();
                             },
                           },
                           e
@@ -540,7 +540,7 @@
                 templateColumns: { md: "1fr 4fr", lg: "1fr 4fr" },
                 children: [
                   (0, R.jsx)(v.x, {}),
-                  (0, R.jsx)(L.Z, {
+                  (0, R.jsx)(A.Z, {
                     onClick: Z,
                     label: "SUBMIT",
                     props: { w: { lg: "20rem" } },
@@ -607,7 +607,7 @@
       function $(e) {
         var r = e.activePage,
           t = e.setActivePage;
-        return (0, R.jsx)(s.xu, {
+        return (0, R.jsx)(o.xu, {
           borderTopWidth: "3px",
           borderColor: "brand.charcoal",
           width: "100%",
@@ -714,12 +714,12 @@
           return e.apply(this, arguments);
         };
       })();
-      function se(e) {
+      function oe(e) {
         for (var r in e)
           (null !== e[r] && void 0 !== e[r] && "" !== e[r]) || delete e[r];
         return e;
       }
-      var oe = t(5951),
+      var se = t(5951),
         ce = t(6336),
         ue = t(3049);
       function le(e) {
@@ -761,7 +761,7 @@
           ],
         });
       }
-      function de(e, r) {
+      function pe(e, r) {
         var t = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
@@ -773,16 +773,16 @@
         }
         return t;
       }
-      function pe(e) {
+      function de(e) {
         for (var r = 1; r < arguments.length; r++) {
           var t = null != arguments[r] ? arguments[r] : {};
           r % 2
-            ? de(Object(t), !0).forEach(function (r) {
+            ? pe(Object(t), !0).forEach(function (r) {
                 (0, x.Z)(e, r, t[r]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t))
-            : de(Object(t)).forEach(function (r) {
+            : pe(Object(t)).forEach(function (r) {
                 Object.defineProperty(
                   e,
                   r,
@@ -798,25 +798,25 @@
           n = e.user,
           a = e.token,
           i = (0, l.useRef)(),
-          s = (0, l.useState)(n),
-          o = s[0],
-          c = s[1],
+          o = (0, l.useState)(n),
+          s = o[0],
+          c = o[1],
           u = (0, l.useState)([]),
-          d = (u[0], u[1]),
+          p = (u[0], u[1]),
           f = (0, l.useState)(!1),
           h = f[0],
           g = f[1],
           j = ae(),
-          y = (0, p.UY)(),
+          y = (0, d.UY)(),
           O = function (e) {
             return function (r) {
-              c(pe(pe({}, o), {}, (0, x.Z)({}, e, r.target.value)));
+              c(de(de({}, s), {}, (0, x.Z)({}, e, r.target.value)));
             };
           },
           w = (function () {
             var e = (0, m.Z)(
               b().mark(function e() {
-                var r, n, s, c, u;
+                var r, n, o, c, u;
                 return b().wrap(
                   function (e) {
                     for (;;)
@@ -839,7 +839,7 @@
                           );
                         case 3:
                           return (
-                            g(!0), (s = se(o)), (e.next = 7), ie(o.id, a, s)
+                            g(!0), (o = oe(s)), (e.next = 7), ie(s.id, a, o)
                           );
                         case 7:
                           (c = e.sent), (u = c.data), y(u), t(), (e.next = 16);
@@ -871,32 +871,32 @@
           children: (0, R.jsxs)("form", {
             ref: i,
             children: [
-              (0, R.jsx)(oe.Z, {
+              (0, R.jsx)(se.Z, {
                 label: "First name",
                 placeholder: "Eg. John",
                 type: "text",
-                value: o.first_name,
+                value: s.first_name,
                 onChange: O("first_name"),
                 invalidText: "First name should be greater than 3 characters",
               }),
-              (0, R.jsx)(oe.Z, {
+              (0, R.jsx)(se.Z, {
                 label: "Last name",
                 placeholder: "Eg. Doe",
                 type: "text",
-                value: o.last_name,
+                value: s.last_name,
                 onChange: O("last_name"),
                 invalidText: "Last name should be greater than 3 characters",
               }),
-              (0, R.jsx)(oe.Z, {
+              (0, R.jsx)(se.Z, {
                 label: "Email address",
                 placeholder: "e.g name@user.com",
                 type: "email",
-                value: o.email,
+                value: s.email,
                 onChange: O("email"),
                 invalidText: "Enter valid email address",
               }),
               (0, R.jsx)(v.x, { mb: "0.5rem", children: "Avatar" }),
-              (0, R.jsx)(N, { setFiles: d }),
+              (0, R.jsx)(N, { setFiles: p }),
             ],
           }),
         });
@@ -955,14 +955,14 @@
             {
               children: [
                 (0, R.jsx)(
-                  s.xu,
+                  o.xu,
                   he(
                     he({ textColor: "brand.battleshipGray" }, a),
                     {},
                     { children: r }
                   )
                 ),
-                (0, R.jsx)(s.xu, { textAlign: "right", children: t }),
+                (0, R.jsx)(o.xu, { textAlign: "right", children: t }),
               ],
             }
           )
@@ -974,14 +974,14 @@
           n = r.first_name,
           a = r.last_name,
           i = r.email,
-          o = r.avatar,
+          s = r.avatar,
           c = (0, j.q)(),
           u = c.isOpen,
           l = c.onOpen,
-          d = c.onClose;
+          p = c.onClose;
         return (0, R.jsxs)(R.Fragment, {
           children: [
-            (0, R.jsxs)(s.xu, {
+            (0, R.jsxs)(o.xu, {
               w: "100%",
               p: { base: "1.2rem", sm: "2rem" },
               children: [
@@ -1003,7 +1003,7 @@
                 (0, R.jsx)(K.qE, {
                   size: "2xl",
                   name: "Segun Adebayo",
-                  src: o || (0, Q.$)(i),
+                  src: s || (0, Q.$)(i),
                   mb: "2rem",
                   children: (0, R.jsx)(K.MX, {
                     boxSize: "1.25em",
@@ -1015,7 +1015,7 @@
                 (0, R.jsx)(xe, { left: "Email", right: i }),
               ],
             }),
-            (0, R.jsx)(fe, { onClose: d, isOpen: u, user: r, token: t }),
+            (0, R.jsx)(fe, { onClose: p, isOpen: u, user: r, token: t }),
           ],
         });
       }
@@ -1024,15 +1024,15 @@
             t = e.token,
             n = (0, z.LI)(),
             a = (0, E.UJ)();
-          return (0, R.jsxs)(s.xu, {
+          return (0, R.jsxs)(o.xu, {
             height: "100%",
             p: { base: "1.2rem", sm: "2rem" },
             children: [
               (0, R.jsx)(v.x, { fontSize: "1.5rem", children: "User Info" }),
               (0, R.jsx)(ge, { user: r, token: t }),
-              (0, R.jsx)(s.xu, {
+              (0, R.jsx)(o.xu, {
                 p: { base: "1.2rem", sm: "2rem" },
-                children: (0, R.jsx)(L.Z, {
+                children: (0, R.jsx)(A.Z, {
                   label: "Sign Out",
                   onClick: function () {
                     n({
@@ -1070,11 +1070,11 @@
         _e = ve()().startOf("quarter"),
         Ze = ve()().endOf("quarter"),
         Te = [Se, _e, ze],
-        Ae = [De, Ze, Ee],
-        Le = function (e) {
+        Ie = [De, Ze, Ee],
+        Ae = function (e) {
           return e[Math.floor(Math.random() * e.length)];
         },
-        Ie = [
+        Le = [
           "obdormition",
           "paresthesia",
           "Sphenopalatine ganglioneuralgia",
@@ -1103,10 +1103,10 @@
         Re = new Array(20).fill(null).map(function (e) {
           return {
             id: (0, C.Z)(),
-            description: Le(Ie),
+            description: Ae(Le),
             date:
-              ((r = Le(Te).toDate()),
-              (t = Le(Ae).toDate()),
+              ((r = Ae(Te).toDate()),
+              (t = Ae(Ie).toDate()),
               new Date(
                 r.getTime() + Math.random() * (t.getTime() - r.getTime())
               )),
@@ -1167,7 +1167,7 @@
             n = (0, l.useState)(),
             a = n[0],
             u = n[1],
-            p = (0, d.VO)().data,
+            d = (0, p.VO)().data,
             f = (0, l.useState)(),
             h = f[0],
             x = f[1],
@@ -1195,9 +1195,9 @@
                                 (t = {
                                   "Content-Type": "application/json",
                                   Authorization: "Bearer ".concat(
-                                    null === p || void 0 === p
+                                    null === d || void 0 === d
                                       ? void 0
-                                      : p.token
+                                      : d.token
                                   ),
                                 }),
                                 (e.next = 3),
@@ -1263,7 +1263,7 @@
           var T = { fontWeight: "bold", color: "brand.maximumBlue" };
           return (
             console.log({ details: a }),
-            (0, R.jsxs)(s.xu, {
+            (0, R.jsxs)(o.xu, {
               p: { lg: "2rem" },
               children: [
                 (0, R.jsxs)(q.k, {
@@ -1289,7 +1289,7 @@
                   leftProps: T,
                 }),
                 0 === (null === a || void 0 === a ? void 0 : a.length) &&
-                  (0, R.jsxs)(o.M, {
+                  (0, R.jsxs)(s.M, {
                     minH: "20rem",
                     flexDir: "column",
                     children: [
@@ -1309,7 +1309,7 @@
                   ? void 0
                   : a.map(function (e, r) {
                       return (0, R.jsxs)(
-                        s.xu,
+                        o.xu,
                         {
                           children: [
                             (0, R.jsx)(xe, {
@@ -1325,7 +1325,7 @@
                             }),
                             e.results.map(function (e, r) {
                               return (0,
-                              R.jsxs)(s.xu, { maxW: "20rem", mb: "1rem", children: [(0, R.jsx)(xe, { left: "Name", right: e.name, props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(xe, { left: "Class", right: "".concat(e.class), props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(xe, { left: "Confidence", right: "".concat(e.confidence), props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(Fe.i, {})] });
+                              R.jsxs)(o.xu, { maxW: "20rem", mb: "1rem", children: [(0, R.jsx)(xe, { left: "Name", right: e.name, props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(xe, { left: "Class", right: "".concat(e.class), props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(xe, { left: "Confidence", right: "".concat(e.confidence), props: { mb: "0.5rem" }, leftProps: T }), (0, R.jsx)(Fe.i, {})] });
                             }),
                             (0, R.jsx)(v.x, {
                               fontSize: "2xl",
@@ -1421,8 +1421,8 @@
           n = e.setGlobalFilter,
           a = r.length,
           i = (0, l.useState)(t),
-          s = i[0],
-          o = i[1],
+          o = i[0],
+          s = i[1],
           c = (0, Ue.useAsyncDebounce)(function (e) {
             n(e || void 0);
           }, 200);
@@ -1439,9 +1439,9 @@
               maxW: "20rem",
               children: [
                 (0, R.jsx)(qe.I, {
-                  value: s || "",
+                  value: o || "",
                   onChange: function (e) {
-                    o(e.target.value), c(e.target.value);
+                    s(e.target.value), c(e.target.value);
                   },
                   placeholder: "".concat(a, " records..."),
                   fontSize: "1.1rem",
@@ -1466,14 +1466,14 @@
             c = e.pageCount,
             u = e.pageOptions,
             l = e.pageIndex,
-            d = e.pageSize,
-            p = e.setPageSize;
-          return (0, R.jsxs)(o.M, {
+            p = e.pageSize,
+            d = e.setPageSize;
+          return (0, R.jsxs)(s.M, {
             flexDir: { base: "column", md: "row" },
             children: [
               (0, R.jsxs)(q.k, {
                 children: [
-                  (0, R.jsx)(L.Z, {
+                  (0, R.jsx)(A.Z, {
                     label: "<<",
                     onClick: function () {
                       return n(0);
@@ -1481,19 +1481,19 @@
                     isDisabled: !t,
                     props: { mr: "1rem" },
                   }),
-                  (0, R.jsx)(L.Z, {
+                  (0, R.jsx)(A.Z, {
                     label: "<",
                     onClick: a,
                     isDisabled: !t,
                     props: { mr: "1rem" },
                   }),
-                  (0, R.jsx)(L.Z, {
+                  (0, R.jsx)(A.Z, {
                     label: ">",
                     onClick: i,
                     isDisabled: !r,
                     props: { mr: "1rem" },
                   }),
-                  (0, R.jsx)(L.Z, {
+                  (0, R.jsx)(A.Z, {
                     label: ">>",
                     onClick: function () {
                       return n(c - 1);
@@ -1503,12 +1503,12 @@
                   }),
                 ],
               }),
-              (0, R.jsxs)(s.xu, {
+              (0, R.jsxs)(o.xu, {
                 mr: "1rem",
                 my: { base: "1rem", md: 0 },
                 children: ["Page ", l + 1, " of ", u.length],
               }),
-              (0, R.jsxs)(s.xu, {
+              (0, R.jsxs)(o.xu, {
                 children: [
                   "| Go to page:",
                   " ",
@@ -1524,12 +1524,12 @@
                   }),
                 ],
               }),
-              (0, R.jsx)(s.xu, {
+              (0, R.jsx)(o.xu, {
                 my: "1.5rem",
                 children: (0, R.jsx)(Ke.Ph, {
-                  value: d,
+                  value: p,
                   onChange: function (e) {
-                    return p(Number(e.target.value));
+                    return d(Number(e.target.value));
                   },
                   bg: "brand.raisinBlack.1",
                   children: [10, 20, 30, 40, 50].map(function (e) {
@@ -1547,7 +1547,7 @@
             n = e.fetchData,
             a = e.pageCount,
             i = (e.loading, e.setActiveResult),
-            o = (0, l.useMemo)(function () {
+            s = (0, l.useMemo)(function () {
               return { fuzzyText: Ye };
             }, []),
             c = (0, Ue.useTable)(
@@ -1557,14 +1557,14 @@
                 initialState: { pageIndex: 0 },
                 manualPagination: !0,
                 pageCount: a,
-                filterTypes: o,
+                filterTypes: s,
               },
               Ue.useGlobalFilter,
               Ue.usePagination
             ),
             u = J().width,
-            d = c.headerGroups,
-            p = c.rows,
+            p = c.headerGroups,
+            d = c.rows,
             f = c.prepareRow,
             m = c.canPreviousPage,
             h = c.canNextPage,
@@ -1607,7 +1607,7 @@
               },
               [D]
             );
-          return (0, R.jsxs)(s.xu, {
+          return (0, R.jsxs)(o.xu, {
             p: { lg: "2rem" },
             children: [
               (0, R.jsx)($e, {
@@ -1623,7 +1623,7 @@
                     children: "ALL THE RESULTS YOU'VE ANALYZED SO FAR",
                   }),
                   (0, R.jsx)(Be.hr, {
-                    children: d.map(function (e, r) {
+                    children: p.map(function (e, r) {
                       return (0, R.jsx)(
                         Be.Tr,
                         {
@@ -1637,7 +1637,7 @@
                     }),
                   }),
                   (0, R.jsx)(Be.p3, {
-                    children: p.map(function (e, r) {
+                    children: d.map(function (e, r) {
                       return (
                         f(e),
                         (0, R.jsx)(
@@ -1685,11 +1685,11 @@
             r = e[0],
             t = e[1],
             i = (0, l.useState)([]),
-            s = i[0],
-            o = i[1],
+            o = i[0],
+            s = i[1],
             c = (0, l.useState)(),
             u = c[0],
-            p = c[1],
+            d = c[1],
             f = (0, a.k)(!1),
             h = (0, n.Z)(f, 2),
             x = h[0],
@@ -1703,7 +1703,7 @@
                 },
                 [v]
               ),
-              (0, d.VO)().data),
+              (0, p.VO)().data),
             O = (0, z.LI)(),
             w = (0, E.UJ)(),
             k = (0, l.useMemo)(function () {
@@ -1741,7 +1741,7 @@
               (function () {
                 var e = (0, m.Z)(
                   b().mark(function e(r) {
-                    var n, a, i, s, c, u, l, d, p;
+                    var n, a, i, o, c, u, l, p, d;
                     return b().wrap(function (e) {
                       for (;;)
                         switch ((e.prev = e.next)) {
@@ -1751,7 +1751,7 @@
                               (a = r.pageIndex),
                               (i = ++j.current),
                               g.on(),
-                              (c = (s = n * a) + n),
+                              (c = (o = n * a) + n),
                               (u = {
                                 "Content-Type": "application/json",
                                 Authorization: "Bearer ".concat(
@@ -1788,8 +1788,8 @@
                           case 13:
                             return (e.next = 15), l.json();
                           case 15:
-                            (d = e.sent).uploads &&
-                              ((p = d.uploads.map(function (e) {
+                            (p = e.sent).uploads &&
+                              ((d = p.uploads.map(function (e) {
                                 return {
                                   id: e.id,
                                   uuid: e.uuid,
@@ -1797,7 +1797,7 @@
                                   date: new Date(e.created_at),
                                 };
                               })),
-                              o(((f = s), (m = c), p.slice(f, m))),
+                              s(((f = o), (m = c), d.slice(f, m))),
                               t(Math.ceil(Re.length / n))),
                               g.off();
                           case 18:
@@ -1815,17 +1815,18 @@
               []
             );
           return u
-            ? (0, R.jsx)(We, { id: u, setActiveResult: p })
+            ? (0, R.jsx)(We, { id: u, setActiveResult: d })
             : (0, R.jsx)(er, {
                 columns: k,
-                data: s,
+                data: o,
                 fetchData: P,
                 pageCount: r,
                 loading: x,
-                setActiveResult: p,
+                setActiveResult: d,
               });
         };
       function tr() {
+        console.log("I am in the manage content ci page");
         var e = (0, l.useState)("analyze"),
           r = e[0],
           t = e[1],
@@ -1833,8 +1834,8 @@
           h = (0, n.Z)(m, 2),
           x = h[0],
           g = (h[1], (0, u.useRouter)().query),
-          b = (0, p.Ve)(),
-          j = (0, d.VO)();
+          b = (0, d.Ve)(),
+          j = (0, p.VO)();
         return (
           console.log({ user: b, session: j }),
           (0, l.useEffect)(
@@ -1855,14 +1856,14 @@
               fontFamily: "Nunito",
               children: [
                 (0, R.jsx)($, { activePage: r, setActivePage: t }),
-                (0, R.jsxs)(s.xu, {
+                (0, R.jsxs)(o.xu, {
                   borderLeftWidth: { xl: "3px" },
                   borderTopWidth: "3px",
                   borderColor: "brand.charcoal",
                   minH: "83vh",
                   children: [
                     x &&
-                      (0, R.jsx)(o.M, {
+                      (0, R.jsx)(s.M, {
                         paddingTop: "2rem",
                         children: (0, R.jsx)(c.$, {}),
                       }),
@@ -1878,8 +1879,9 @@
         );
       }
       var nr = function (e) {
-        var r = e.children,
-          t = (0, E.NH)(),
+        var r = e.children;
+        console.log("I am in the auth wrapper");
+        var t = (0, E.NH)(),
           n = (0, u.useRouter)();
         return (
           console.log({ auth: t, router: n }),
@@ -1893,7 +1895,10 @@
         );
       };
       function ar() {
-        return (0, R.jsx)(nr, { children: (0, R.jsx)(tr, {}) });
+        return (
+          console.log("I am in the manage page"),
+          (0, R.jsx)(nr, { children: (0, R.jsx)(tr, {}) })
+        );
       }
     },
     5021: function (e, r, t) {
