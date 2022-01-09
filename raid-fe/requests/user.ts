@@ -1,3 +1,4 @@
+import { backendURL } from "../config/fe";
 import User from "../types/User";
 
 export const updateUserDetails = async (
@@ -5,7 +6,7 @@ export const updateUserDetails = async (
   token: string,
   userDetails: Partial<User>
 ) => {
-  const response = await fetch(`/auth/user/`, {
+  const response = await fetch(`${backendURL}/auth/user/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
