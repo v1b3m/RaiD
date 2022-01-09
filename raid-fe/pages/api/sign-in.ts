@@ -6,17 +6,13 @@ import { defaultCookieConfig } from "../../config/be";
 import { baseURL } from "../../config/be";
 import { HttpError } from "../../error";
 import { validate } from "../../middleware/validate";
+import User from "../../types/User";
 import { encrypt } from "../../utils/crypto";
 import { modifyToken } from "../../utils/jwt";
 
 export interface SignInResponse {
   message: string;
-  user?: {
-    id: number;
-    email: string;
-    first_name: string;
-    last_name: string;
-  };
+  user?: User;
   access?: string;
   error?: Record<string, unknown>;
 }
