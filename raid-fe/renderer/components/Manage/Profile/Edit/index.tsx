@@ -8,6 +8,8 @@ import CustomInput from "../../../auth/Forms/CustomInput";
 import MyDropZone from "../../Analyze/MyDropZone";
 import Container from "./Container";
 import { Text } from "@chakra-ui/react";
+import { upload } from "../../../../utils/cloudinary";
+import { cloudName, uploadPreset } from "../../../../config/fe";
 
 interface Props {
   isOpen: boolean;
@@ -34,7 +36,14 @@ export default function Edit({ isOpen, onClose, user, token }: Props) {
         return formRef.current?.reportValidity();
       }
       setIsLoading(true);
-      const cleaned = clean(userInfo as unknown as Record<string, unknown>);
+      let avatar: string;
+      if (files.length > 0) {
+        avatar = (await upload(files, cloudName, uploadPreset))[0];
+      }
+      const cleaned = clean({ ...userInfo, avatar } as unknown as Record<
+        string,
+        unknown
+      >);
       const { data } = await updateUserDetails(userInfo.id, token, cleaned);
       updateUserData(data);
       onClose();
