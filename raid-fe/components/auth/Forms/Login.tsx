@@ -7,6 +7,7 @@ import {
   Text,
   useBoolean,
 } from "@chakra-ui/react";
+import axios from "axios";
 import md5 from "crypto-js/md5";
 import { ChangeEvent, useEffect, useReducer } from "react";
 import { FaUserCircle } from "react-icons/fa";
@@ -114,15 +115,24 @@ const Login = () => {
           email: state.email,
           password: state.password,
         });
-        const response = await fetch(`${backendURL}/auth/login/`, {
-          body,
-          method: "POST",
-          headers,
-        });
+        const response = await axios.post<SignInResponse>(
+          `${backendURL}/auth/login/`,
+          {
+            email: state.email,
+            password: state.password,
+          },
+          { headers }
+        );
+
+        // const response = await fetch(`${backendURL}/auth/login/`, {
+        //   body,
+        //   method: "POST",
+        //   headers,
+        // });
         const { status } = response;
         if (status === 200) {
-          const json = (await response.json()) as SignInResponse;
-          const { access, user } = json;
+          // const json = (await response.json()) as SignInResponse;
+          const { access, user } = response.data;
           setUser(user);
           setSession({
             status: "authenticated",
@@ -133,7 +143,7 @@ const Login = () => {
           logIn();
         }
         if ([400, 500].includes(response.status)) {
-          throw new HttpError(await response.text(), response.status);
+          throw new HttpError(await response.statusText, response.status);
         }
         addPopup({
           content: {
