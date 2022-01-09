@@ -89,7 +89,7 @@ const Details = ({ id, setActiveResult }: Props) => {
     if (details && details.length === 0) {
       timeout = setTimeout(() => {
         getDetails();
-      }, 60000);
+      }, 30000);
     }
 
     return () => clearTimeout(timeout);
