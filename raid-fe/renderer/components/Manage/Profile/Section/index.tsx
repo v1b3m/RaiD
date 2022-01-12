@@ -6,6 +6,7 @@ interface SectionProps {
   right: JSX.Element | string;
   props?: FlexProps;
   leftProps?: BoxProps;
+  className?: string;
 }
 
 export default function Section({
@@ -13,6 +14,7 @@ export default function Section({
   right,
   props,
   leftProps,
+  className,
 }: SectionProps): JSX.Element {
   return (
     <Flex
@@ -22,12 +24,15 @@ export default function Section({
       fontSize="0.875rem"
       lineHeight="1.375rem"
       mb="1.75rem"
+      className={className}
       {...props}
     >
-      <Box textColor="brand.battleshipGray" {...leftProps}>
+      <Box id="section-left" textColor="brand.battleshipGray" {...leftProps}>
         {left}
       </Box>
-      <Box textAlign="right">{right}</Box>
+      <Box id="section-right" textAlign="right">
+        {right}
+      </Box>
     </Flex>
   );
 }
