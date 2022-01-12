@@ -1,0 +1,30 @@
+{
+  "name": "raid-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/app.js",
+    "lint": "eslint 'src/**/*.ts'",
+    "deploy": "git subtree push --prefix raid-be heroku master"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "helmet": "^5.0.1",
+    "pdf-puppeteer": "^1.1.10",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": "14.x.x"
+  }
+}
